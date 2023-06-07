@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   resources :childcares do
     resources :childcare_comments, only: :create
   end
+  resources :users, only: :show
 end
