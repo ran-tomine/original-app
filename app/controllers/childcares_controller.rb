@@ -20,6 +20,8 @@ class ChildcaresController < ApplicationController
 
   def show
     @childcare = Childcare.find(params[:id])
+    @childcare_comment = ChildcareComment.new
+    @childcare_comments =@childcare.childcare_comments.includes(:user)
   end
 
   def edit

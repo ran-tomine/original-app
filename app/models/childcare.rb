@@ -6,5 +6,5 @@ class Childcare < ApplicationRecord
 
   belongs_to :user
   has_one_attached :image
-  belongs_to :childcare_comment
+  has_many :childcare_comments, dependent: :destroy
 end

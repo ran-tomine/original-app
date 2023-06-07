@@ -7,5 +7,5 @@ class User < ApplicationRecord
   validates :nickname, presence: true
 
   has_many :childcares
-  has_many :childcare_comments, dependent: :destroy
+  has_many :childcare_comments
 end
