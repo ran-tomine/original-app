@@ -1,0 +1,2 @@
+class Childcare < ApplicationRecord
+end
