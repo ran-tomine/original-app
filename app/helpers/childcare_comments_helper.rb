@@ -1,0 +1,2 @@
+module ChildcareCommentsHelper
+end

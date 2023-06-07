@@ -7,7 +7,7 @@
       <%= @childcare.title %>
     </h2>
     <div class="item-img-content">
-      <%= image_tag @childcare.image.variant(resize: '500x500'), class: "item-img" if @childcare.image.attached? %>
+      <%= image_tag "item-sample.png" ,class:"item-box-img" %>
     </div>
     <div class="item-price-box">
       <span class="item-price">
@@ -18,7 +18,7 @@
     <%# ログインしているユーザーと出品しているユーザーが、同一人物の場合と同一人物ではない場合で、処理を分けましょう %>
     <% if user_signed_in? %> 
       <% if current_user.id == @childcare.user_id %>
-      <%= link_to "商品の編集",edit_childcare_path, method: :get, class: "item-red-btn" %>
+      <%= link_to "商品の編集", "#", method: :get, class: "item-red-btn" %>
       <p class="or-text">or</p>
       <%= link_to "削除", "#", method: :delete, class:"item-destroy" %>
       <%end%>
@@ -52,22 +52,39 @@
       </div>
     </div>
   </div>
-  <%# /商品の概要 %>
 
+
+  <%#新しく追加%>
   <div class="comment-box">
-    <form>
-      <textarea class="comment-text"></textarea>
-      <p class="comment-warn">
+  <% if user_signed_in? %>
+    <%= form_with(model: [@childcare, @childcare_comment], local: true) do |f| %>
+    <%= f.label :content, "コメント" %><br />
+    <%= f.text_field :content, id:"comment_text",class:"comment-text" %>
+    <p class="comment-warn">
         相手のことを考え丁寧なコメントを心がけましょう。
         <br>
         不快な言葉遣いなどは利用制限や退会処分となることがあります。
       </p>
-      <button type="submit" class="comment-btn">
-        <%= image_tag "comment.png" ,class:"comment-flag-icon" ,width:"20",height:"25"%>
-        <span>コメントする<span>
-      </button>
-    </form>
-  </div>
+    <div class="actions">
+      <%= button_tag type: "submit", class: "comment-btn" do %>
+      <%= image_tag "comment.png", class: "comment-flag-icon", width: "20", height: "25" %>
+      <span>コメントする</span>
+    <% end %>
+    </div>
+    <% end %> 
+  <% end %>
+  <ul class="comments_lists">
+    <% @childcare_comments.each do |comment| %>
+      <li class="comments_list">
+        <%=comment.content %>
+        <%# link_to comment.user.nickname, user_path(comment.user), class: :comment_user %>
+      </li>
+  <% end %>
+  </ul>
+</div>
+
+  <%# /商品の概要 %>
+
   <div class="links">
     <a href="#" class="change-item-btn">
       ＜ 前の商品
@@ -81,4 +98,4 @@
   <%# //詳細ページで表示されている商品のカテゴリー名を表示しましょう %>
 </div>
 
-<%# render "shared/footer" %>
+<%= render "shared/footer" %>

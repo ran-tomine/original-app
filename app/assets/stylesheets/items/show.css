@@ -148,6 +148,18 @@
   text-align: center;
 }
 
+/*追加した記述*/
+.comments_lists{
+  margin-left: 20px;
+}
+
+.comments_list{
+  list-style-type: square;
+  padding-bottom: 5px;
+  text-align: left; /* 左詰めにする */
+}
+/*追加した記述*/
+
 .comment-text {
   width: 100%;
   height: 100px;
@@ -205,3 +217,5 @@
   font-weight: bold;
   font-size: 23px;
 }
+
+
