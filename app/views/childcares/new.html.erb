@@ -4,7 +4,7 @@
 
   </header>
   <div class="items-sell-main">
-    <h2 class="items-sell-title">商品の情報を入力</h2>
+    <h2 class="items-sell-title">育児日記</h2>
     <%= form_with model:@childcare, local: true do |f| %>
 
     <%# インスタンスを渡して、エラー発生時にメッセージが表示されるようにしましょう。%>
@@ -14,7 +14,7 @@
     <%# 商品画像 %>
     <div class="img-upload">
       <div class="weight-bold-text">
-        商品画像
+        画像
         <span class="indispensable">必須</span>
       </div>
       <div class="click-upload">
@@ -28,13 +28,13 @@
     <%# 商品名と商品説明 %>
     <div class="new-items">
       <div class="weight-bold-text">
-        商品名
+        タイトル
         <span class="indispensable">必須</span>
       </div>
       <%= f.text_area :title, class:"items-text", id:"item-name", placeholder:"タイトル", maxlength:"40" %>
       <div class="items-explain">
         <div class="weight-bold-text">
-          商品の説明
+          思い出
           <span class="indispensable">必須</span>
         </div>
         <%= f.text_area :diary, class:"items-text", id:"item-info", placeholder:"育児日記" ,rows:"7" ,maxlength:"1000" %>
@@ -44,7 +44,7 @@
 
     <%# 下部ボタン %>
     <div class="sell-btn-contents">
-      <%= f.submit "出品する" ,class:"sell-btn" %>
+      <%= f.submit "投稿する" ,class:"sell-btn" %>
       <%=link_to 'もどる', root_path, class:"back-btn" %>
     </div>
     <%# /下部ボタン %>
