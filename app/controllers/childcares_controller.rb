@@ -22,6 +22,19 @@ class ChildcaresController < ApplicationController
     @childcare = Childcare.find(params[:id])
   end
 
+  def edit
+    @childcare = Childcare.find(params[:id])
+  end
+
+  def update
+    @childcare = Childcare.find(params[:id])
+    if @childcare.update(childcare_params)
+      redirect_to childcare_path
+    else
+      render :edit
+    end
+  end
+
 
   private
 
