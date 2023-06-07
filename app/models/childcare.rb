@@ -4,4 +4,5 @@ class Childcare < ApplicationRecord
   validates :diary, presence: true
 
   belongs_to :user
+  has_one_attached :image
 end
