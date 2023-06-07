@@ -18,6 +18,9 @@ class ChildcaresController < ApplicationController
     end
   end
 
+  def show
+  end
+
 
   private
 
