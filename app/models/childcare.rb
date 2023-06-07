@@ -1,5 +1,6 @@
 class Childcare < ApplicationRecord
 
+  validates :image, presence: true
   validates :title, presence: true
   validates :diary, presence: true
 
