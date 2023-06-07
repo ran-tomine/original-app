@@ -19,6 +19,7 @@ class ChildcaresController < ApplicationController
   end
 
   def show
+    @childcare = Childcare.find(params[:id])
   end
 
 
