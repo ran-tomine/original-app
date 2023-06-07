@@ -18,6 +18,10 @@ class ChildcaresController < ApplicationController
     end
   end
 
+  def show
+    @childcare = Childcare.find(params[:id])
+  end
+
 
   private
 
