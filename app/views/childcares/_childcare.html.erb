@@ -1,0 +1,10 @@
+<div class="card">
+  <%= link_to (image_tag (childcare.image), class: :card__img ), childcare_path(childcare.id)%>
+  <div class="card__body">
+    <%= link_to childcare.title, childcare_path(childcare.id), class: :card__title%>
+    <p class="card__summary">
+      <%= childcare.diary %>
+    </p>
+    <%= link_to "by #{childcare.user.nickname}", user_path(childcare.user.id), class: :card__user %>
+  </div>
+</div>
