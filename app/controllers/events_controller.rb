@@ -15,6 +15,8 @@ end
 
 def show
   @event = Event.find(params[:id])
+  @event_comment = EventComment.new
+  @event_comments =@event.event_comments.includes(:user)
 end
 
 def edit
