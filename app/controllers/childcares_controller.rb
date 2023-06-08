@@ -26,6 +26,9 @@ class ChildcaresController < ApplicationController
 
   def edit
     @childcare = Childcare.find(params[:id])
+    unless user_signed_in? && current_user == @childcare.user
+      redirect_to action: :index
+    end
   end
 
   def update

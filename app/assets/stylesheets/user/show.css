@@ -1,8 +1,17 @@
 /* ユーザーページ */
-.main{
-  background-color:#FFFFFF;
+.main1{
+  background-color:#F8F8F8;
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+  height: 100vh;
 }
 
+.main2{
+  width:90%;
+  background-color:#FFFFFF;
+  margin: auto;
+}
 .inner {
   width: 1024px;
   margin: 0 auto;
