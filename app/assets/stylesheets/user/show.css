@@ -1,0 +1,63 @@
+/* ユーザーページ */
+.main1{
+  background-color:#F8F8F8;
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+  height: 100vh;
+}
+
+.main2{
+  width:90%;
+  background-color:#FFFFFF;
+  margin: auto;
+}
+.inner {
+  width: 1024px;
+  margin: 0 auto;
+}
+
+.user__wrapper{
+  min-height: calc(100vh - 161px);
+}
+
+.page-heading {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.table{
+  border-collapse: collapse;
+  margin-bottom: 32px;
+  width: 50%;
+}
+.table__col1{
+  text-align: left;
+  font-weight: bold;
+  background:#cfcbcb;
+  border-collapse: collapse;
+  border: 1px solid #b2afaf;
+  width: 30%;
+  padding: 8px;
+}
+.table__col2{
+  text-align: left;
+  border: 1px solid #b2afaf;
+  border-collapse: collapse;
+  width: 70%;
+  padding: 16px 8px;
+}
+.user__card {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.page-heading {
+  font-size: 30px;
+  margin-bottom: 28px;
+}
+
+
+

@@ -4,7 +4,8 @@
 <div class="item-show">
   <div class="item-box">
     <h2 class="name">
-      <%= @childcare.title %>
+      <%= @childcare.title %><br>
+      <%= link_to "by #{@childcare.user.nickname}", user_path(@childcare.user.id), class: :card__user %>
     </h2>
     <div class="item-img-content">
       <%= image_tag "item-sample.png" ,class:"item-box-img" %>
@@ -77,7 +78,7 @@
     <% @childcare_comments.each do |comment| %>
       <li class="comments_list">
         <%=comment.content %>
-        <%# link_to comment.user.nickname, user_path(comment.user), class: :comment_user %>
+        <%= link_to comment.user.nickname, user_path(comment.user), class: :comment_user %>
       </li>
   <% end %>
   </ul>

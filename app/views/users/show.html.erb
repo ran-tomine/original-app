@@ -1,0 +1,31 @@
+<%= render "shared/header" %>
+<div class="main1">
+  <div class="main2">
+    <div class="inner">
+      <div class="user__wrapper">
+        <h2 class="page-heading">
+          <%= @user.nickname %>さんの情報
+        </h2>
+        <table class="table">
+          <tbody>
+            <tr>
+              <th class="table__col1">名前</th>
+              <td class="table__col2"><%= @user.nickname %></td>
+            </tr>
+            <tr>
+              <th class="table__col1">プロフィール</th>
+              <td class="table__col2">プロフィール</td>
+            </tr>
+          </tbody>
+        </table>
+        <h2 class="page-heading">
+          <%= @user.nickname%>さんのプロトタイプ
+        </h2>
+        <div class="user__card">
+          <%= render partial: "childcares/childcare", collection: @user.childcares %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<%= render "shared/footer" %>
