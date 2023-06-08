@@ -1,5 +1,11 @@
-<h1>フォローされている人一覧</h1>
+<%= render "shared/header" %>
 
+<div class="items-sell-main">
+<h1 class="items-sell-title">フォローされている人一覧</h1>
 <% @followers.each do |user| %>
   <p class="f-user"><%= link_to user.nickname, user_path(user) %></p>
 <% end %>
+</div>
+
+
+<%= render "shared/footer" %>

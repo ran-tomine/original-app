@@ -1,5 +1,10 @@
-<h1>フォローしている人一覧</h1>
+<%= render "shared/header" %>
 
-<% @followings.each do |user| %>
-  <p class="f-user"><%= link_to user.nickname, user_path(user) %></p>
-<% end %>
+ <div class="items-sell-main">
+  <h1 class="items-sell-title">フォローしている人一覧</h1>
+  <% @followings.each do |user| %>
+    <p class="f-user"><%= link_to user.nickname, user_path(user) %></p>
+  <% end %>
+ </div>
+
+ <%= render "shared/footer" %>
