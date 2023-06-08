@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resources :users do
     resource :relationships, only: [:create, :destroy]
     get 'followings', to: 'followings#index'
+    get 'followers', to: 'followers#index'
   end
   
   resources :events do

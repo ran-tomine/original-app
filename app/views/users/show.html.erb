@@ -17,13 +17,13 @@
 
          <%= link_to user_followings_path(@user) do %>
          <h3>フォロー (<%= @user.followings.count %>人)</h3>
-        <% end %>
-
-         <h3>フォロワー</h3>
-         <% @user.followers.each do |user| %>
-         <p class=“f-user”><%= link_to user.nickname, user_path(user.id) %></p>
          <% end %>
-        <table class="table">
+
+         <%= link_to user_followers_path(@user) do %>
+         <h3>フォロー (<%= @user.followers.count %>人)</h3>
+         <% end %>
+
+         
           <tbody>
             <tr>
               <th class="table__col1">名前</th>
