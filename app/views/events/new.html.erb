@@ -5,7 +5,7 @@
   </header>
   <div class="items-sell-main">
     <h2 class="items-sell-title">育児日記</h2>
-    <%= form_with model:@childcare, local: true do |f| %>
+    <%= form_with model:@event, local: true do |f| %>
 
     <%# インスタンスを渡して、エラー発生時にメッセージが表示されるようにしましょう。%>
     <%= render 'shared/error_messages', model: f.object %>
@@ -28,16 +28,29 @@
     <%# 商品名と商品説明 %>
     <div class="new-items">
       <div class="weight-bold-text">
-        タイトル
+        イベント名
         <span class="indispensable">必須</span>
       </div>
-      <%= f.text_area :title, class:"items-text", id:"item-name", placeholder:"タイトル", maxlength:"40" %>
+      <%= f.text_area :name, class:"items-text", id:"item-name", placeholder:"イベント名", maxlength:"40" %>
+
+      <div class="weight-bold-text">
+        場所
+        <span class="indispensable">必須</span>
+      </div>
+      <%= f.text_area :location, class:"items-text", id:"item-name", placeholder:"場所", maxlength:"40" %>
+
+      <div class="weight-bold-text">
+        時間
+        <span class="indispensable">必須</span>
+      </div>
+      <%= f.datetime_select :datetime,{}, class:"items-text", id:"item-name", placeholder:"時間"%>
+
       <div class="items-explain">
         <div class="weight-bold-text">
-          思い出
+          説明
           <span class="indispensable">必須</span>
         </div>
-        <%= f.text_area :diary, class:"items-text", id:"item-info", placeholder:"育児日記" ,rows:"7" ,maxlength:"1000" %>
+        <%= f.text_area :description, class:"items-text", id:"item-info", placeholder:"説明" ,rows:"7" ,maxlength:"1000" %>
       </div>
     </div>
     <%# /商品名と商品説明 %>

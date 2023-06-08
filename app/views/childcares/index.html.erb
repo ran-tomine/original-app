@@ -185,5 +185,11 @@
   <%= image_tag 'icon_camera.png' , size: '185x50' ,class: "purchase-btn-icon" %>
 <% end %>
 
-  
+<div>
+<%= link_to(new_event_path) do %>
+  <span>投稿する</span>
+  <%= image_tag 'icon_camera.png' %>
+<% end %>
+</div>
+
 <%= render "shared/footer" %>
