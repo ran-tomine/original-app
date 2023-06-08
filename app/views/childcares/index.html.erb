@@ -25,6 +25,64 @@
     <h2 class='title'>
       FURIMAが選ばれる3つの理由
     </h2>
+
+     <%# 追加内容 %>
+<div class='item-contents'>
+    <h2 class='title'>ピックアップカテゴリー</h2>
+    <div class="subtitle" >
+      新規投稿商品
+    </div>
+    <ul class='item-lists'>
+
+     <% @events.each do |event| %>
+      <li class='list'>
+    <%= link_to event_path(event.id) do %>
+      <div class='item-img-content'>
+    <%= image_tag event.image.variant(resize: '500x500'), class: "item-img" if event.image.attached? %>
+      </div>
+        <div class='item-info'>
+          <h3 class='item-name'>
+            <%= event.name %>
+          </h3>
+          <div class='item-price'>
+            <span><%= event.datetime %>円<br>
+            </span>
+            <span><%= event.location %>円<br>
+            </span>
+            <div class='star-btn'>
+              <%= image_tag "star.png", class:"star-icon" %>
+                <span class='star-count'>0</span>
+              </div>
+            </div>
+          </div>
+        </li>
+      <% end %>
+      <% end %>
+
+      <% if @events.empty?%>
+      <li class='list'>
+        <%= link_to '#' do %>
+        <%= image_tag "https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-4/sample.jpg", class: "item-img" %>
+        <div class='item-info'>
+          <h3 class='item-name'>
+            商品を出品してね！
+          </h3>
+          <div class='item-price'>
+            <span>99999999円<br>(税込み)</span>
+            <div class='star-btn'>
+              <%= image_tag "star.png", class:"star-icon" %>
+              <span class='star-count'>0</span>
+            </div>
+          </div>
+        </div>
+        <% end %>
+      </li>
+      <% end %>
+
+       </ul>
+  </div>
+     <%# 追加内容 %>
+     
     <ul class='reason-lists'>
       <li class='list'>
         <%= image_tag "furima-intro01.png", class:"list-pict" %>
@@ -130,7 +188,7 @@
     <ul class='item-lists'>
 
       
-      <% @childcare.each do |childcare| %>
+      <% @childcares.each do |childcare| %>
         <li class='list'>
       <%= link_to childcare_path(childcare.id) do %>
         <div class='item-img-content'>
@@ -154,7 +212,7 @@
       <% end %>
 
 
-      <% if @childcare.empty?%>
+      <% if @childcares.empty?%>
       <li class='list'>
         <%= link_to '#' do %>
         <%= image_tag "https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-4/sample.jpg", class: "item-img" %>
