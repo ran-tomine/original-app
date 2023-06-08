@@ -2,7 +2,8 @@ class ChildcaresController < ApplicationController
   before_action :authenticate_user!, only: [:new, :destroy]
   
   def index
-    @childcare = Childcare.all
+    @childcares = Childcare.all
+    @events = Event.all
   end
 
   def new

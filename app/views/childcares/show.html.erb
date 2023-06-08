@@ -8,7 +8,7 @@
       <%= link_to "by #{@childcare.user.nickname}", user_path(@childcare.user.id), class: :card__user %>
     </h2>
     <div class="item-img-content">
-      <%= image_tag "item-sample.png" ,class:"item-box-img" %>
+      <%= image_tag @childcare.image.variant(resize: '500x500') ,class:"item-box-img" if @childcare.image.attached?%>
     </div>
     <div class="item-price-box">
       <span class="item-price">
