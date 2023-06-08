@@ -6,6 +6,11 @@
         <h2 class="page-heading">
           <%= @user.nickname %>さんの情報
         </h2>
+        <% if @user.followed_by?(current_user) %>
+          <%=link_to "フォロー中", user_relationships_path(@user.id),class: "btn" , method: :delete %>
+        <% else %>
+          <%=link_to "フォローする", user_relationships_path(@user.id),class: "btn" ,method: :post %>
+        <% end %>
         <table class="table">
           <tbody>
             <tr>
