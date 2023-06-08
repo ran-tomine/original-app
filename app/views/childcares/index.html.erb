@@ -244,9 +244,9 @@
 <% end %>
 
 <div>
-<%= link_to(new_event_path) do %>
-  <span>投稿する</span>
-  <%= image_tag 'icon_camera.png' %>
+<%= link_to(new_event_path,class: 'purchase-btn-left') do %>
+  <span class='purchase-btn-text-left'>投稿する</span>
+  <%= image_tag 'icon_camera.png', size: '185x50' ,class: "purchase-btn-icon-left"  %>
 <% end %>
 </div>
 
