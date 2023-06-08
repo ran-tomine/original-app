@@ -9,4 +9,5 @@ class User < ApplicationRecord
   has_many :childcares
   has_many :childcare_comments
   has_many :events
+  has_many :event_comments
 end
