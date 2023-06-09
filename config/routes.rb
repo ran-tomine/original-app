@@ -19,5 +19,6 @@ Rails.application.routes.draw do
   end
 
   resource :messages, only: :index
+  resources :rooms, only: [:new, :create]
 
 end
