@@ -20,10 +20,10 @@
          <% end %>
 
          <%= link_to user_followers_path(@user) do %>
-         <h3>フォロー (<%= @user.followers.count %>人)</h3>
+         <h3>フォロワー (<%= @user.followers.count %>人)</h3>
          <% end %>
 
-         
+         <table class="table">
           <tbody>
             <tr>
               <th class="table__col1">名前</th>
