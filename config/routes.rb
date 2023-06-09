@@ -18,4 +18,6 @@ Rails.application.routes.draw do
     resources :event_comments,only: :create
   end
 
+  resource :messages, only: :index
+
 end
