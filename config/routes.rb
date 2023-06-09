@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get 'messages/index'
   devise_for :users
   root to: 'childcares#index'
 
@@ -18,7 +17,7 @@ Rails.application.routes.draw do
     resources :event_comments,only: :create
   end
 
-  resources :rooms, only: [:new, :create] do
+  resources :rooms, only: [:index,:new, :create] do
     resources :messages, only: [:index, :create]
   end
   
