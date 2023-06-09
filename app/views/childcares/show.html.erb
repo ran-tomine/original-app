@@ -14,11 +14,7 @@
         <%= link_to  "投稿者：#{@childcare.title}", user_path(@childcare.user)%>
       </div>
       <div id="like-btn<%= @childcare.id %>">
-        <% if user_signed_in? && @childcare.liked_by?(current_user)%>
-        <%=link_to "いいね済", childcare_likes_path(@childcare.id),  method: :delete, class: "tweet_likes" %>
-        <% else %>
-        <%=link_to "いいねする", childcare_likes_path(@childcare.id), method: :post, class: "tweet_likes" %>
-        <% end %>
+        <%= render partial: "childcares/like", locals: {childcare: @childcare } %>
       </div>
     </div>
     <%# 追加 %>
