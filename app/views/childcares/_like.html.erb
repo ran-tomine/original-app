@@ -1,0 +1,13 @@
+<% if user_signed_in? && @childcare.liked_by?(current_user)%>
+  <%=link_to "いいね済", childcare_likes_path(childcare.id),  method: :delete, class: "tweet_likes" , remote: true %>
+<% else %>
+  <%=link_to "いいねする", childcare_likes_path(childcare.id), method: :post, class: "tweet_likes" , remote: true %>
+<% end %>
+
+<div>
+<span class="like-count">
+  <%= "いいね数#{@childcare.likes.count}" %>
+</span>
+</div>
+
+ 

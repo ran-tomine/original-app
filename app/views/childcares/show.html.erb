@@ -7,6 +7,17 @@
       <%= @childcare.title %><br>
       <%= link_to "by #{@childcare.user.nickname}", user_path(@childcare.user.id), class: :card__user %>
     </h2>
+    <%# 追加 %>
+    <div class="tweet">
+      <p class = "tweet-text"><%= @childcare.title %></p>
+      <div class="tweet-name">
+        <%= link_to  "投稿者：#{@childcare.title}", user_path(@childcare.user)%>
+      </div>
+      <div id="like-btn<%= @childcare.id %>">
+        <%= render partial: "childcares/like", locals: {childcare: @childcare } %>
+      </div>
+    </div>
+    <%# 追加 %>
     <div class="item-img-content">
       <%= image_tag @childcare.image.variant(resize: '500x500') ,class:"item-box-img" if @childcare.image.attached?%>
     </div>
