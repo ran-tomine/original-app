@@ -6,7 +6,24 @@
         <h2 class="page-heading">
           <%= @user.nickname %>さんの情報
         </h2>
-        <table class="table">
+        <% if current_user != @user %>
+          <% if @user.followed_by?(current_user) %>
+            <%=link_to "フォロー中", user_relationships_path(@user.id),class: "btn" , method: :delete %>
+          <% else %>
+            <%=link_to "フォローする", user_relationships_path(@user.id),class: "btn" ,method: :post %>
+          <% end %>
+         <% end %>
+
+
+         <%= link_to user_followings_path(@user) do %>
+         <h3>フォロー (<%= @user.followings.count %>人)</h3>
+         <% end %>
+
+         <%= link_to user_followers_path(@user) do %>
+         <h3>フォロワー (<%= @user.followers.count %>人)</h3>
+         <% end %>
+
+         <table class="table">
           <tbody>
             <tr>
               <th class="table__col1">名前</th>
