@@ -22,4 +22,6 @@ class User < ApplicationRecord
     return follower.present?
   end
 
+  has_many :likes
+
 end
