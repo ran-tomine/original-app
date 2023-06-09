@@ -18,7 +18,8 @@ Rails.application.routes.draw do
     resources :event_comments,only: :create
   end
 
-  resource :messages, only: :index
-  resources :rooms, only: [:new, :create]
-
+  resources :rooms, only: [:new, :create] do
+    resources :messages, only: [:index, :create]
+  end
+  
 end
