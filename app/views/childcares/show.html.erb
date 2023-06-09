@@ -7,6 +7,21 @@
       <%= @childcare.title %><br>
       <%= link_to "by #{@childcare.user.nickname}", user_path(@childcare.user.id), class: :card__user %>
     </h2>
+    <%# 追加 %>
+    <div class="tweet">
+      <p class = "tweet-text"><%= @childcare.title %></p>
+      <div class="tweet-name">
+        <%= link_to  "投稿者：#{@childcare.title}", user_path(@childcare.user)%>
+      </div>
+      <div id="like-btn<%= @childcare.id %>">
+        <% if user_signed_in? && @childcare.liked_by?(current_user)%>
+        <%=link_to "いいね済", childcare_likes_path(@childcare.id),  method: :delete, class: "tweet_likes" %>
+        <% else %>
+        <%=link_to "いいねする", childcare_likes_path(@childcare.id), method: :post, class: "tweet_likes" %>
+        <% end %>
+      </div>
+    </div>
+    <%# 追加 %>
     <div class="item-img-content">
       <%= image_tag @childcare.image.variant(resize: '500x500') ,class:"item-box-img" if @childcare.image.attached?%>
     </div>
