@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   resources :childcares do
     resources :childcare_comments, only: :create
-    resource :likes, only: [:create, :destroy]
+    resource :likes, only: [:create, :destroy] 
   end
 
   resources :users do

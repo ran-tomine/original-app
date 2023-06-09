@@ -3,3 +3,11 @@
 <% else %>
   <%=link_to "いいねする", childcare_likes_path(childcare.id), method: :post, class: "tweet_likes" , remote: true %>
 <% end %>
+
+<div>
+<span class="like-count">
+  <%= "いいね数#{@childcare.likes.count}" %>
+</span>
+</div>
+
+ 
