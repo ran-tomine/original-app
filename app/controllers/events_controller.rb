@@ -43,7 +43,7 @@ end
 private
 
 def event_params
-  params.require(:event).permit(:name,:location ,:datetime, :description, :image).merge(user_id: current_user.id)
+  params.require(:event).permit(:name,:location ,:datetime, :description, :image, :address, :latitude, :longitude).merge(user_id: current_user.id)
 end
 
 end
