@@ -2,11 +2,7 @@ class ChildcareCommentsController < ApplicationController
   def create
     @childcare_comment = ChildcareComment.new(childcare_comment_params)
     if @childcare_comment.save
-      redirect_to childcare_path(@childcare_comment.childcare)
-    else
-      @childcare = @childcare_comment.childcare
-      @childcare_comments = @childcare.childcare_comments
-      render "childcares/show"
+      ActionCable.server.broadcast "childcare_comment_channel", {childcare_comment: @childcare_comment, user: @childcare_comment.user} #追加
     end
   end
 
