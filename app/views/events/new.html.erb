@@ -53,6 +53,13 @@
         <%= f.text_area :description, class:"items-text", id:"item-info", placeholder:"説明" ,rows:"7" ,maxlength:"1000" %>
       </div>
     </div>
+
+      <div class="weight-bold-text">
+        住所
+        <span class="indispensable">必須</span>
+      </div>
+      <%= f.text_field :address, class:"items-text", id:"item-name", placeholder:"住所" %>
+
     <%# /商品名と商品説明 %>
 
     <%# 下部ボタン %>
