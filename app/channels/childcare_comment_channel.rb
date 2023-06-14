@@ -1,6 +1,7 @@
 class ChildcareCommentChannel < ApplicationCable::Channel
   def subscribed
-    stream_from "childcare_comment_channel" #追加
+    @childcare = Childcare.find(params[:childcare_id]) # 追記
+    stream_for @childcare # 追記
   end
 
   def unsubscribed

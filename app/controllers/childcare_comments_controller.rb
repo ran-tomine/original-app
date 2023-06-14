@@ -1,8 +1,9 @@
 class ChildcareCommentsController < ApplicationController
   def create
     @childcare_comment = ChildcareComment.new(childcare_comment_params)
+    @childcare = Childcare.find(params[:childcare_id]) #追加
     if @childcare_comment.save
-      ActionCable.server.broadcast "childcare_comment_channel", {childcare_comment: @childcare_comment, user: @childcare_comment.user} #追加
+      ChildcareCommentChannel.broadcast_to @childcare, { childcare_comment: @childcare_comment, user: @childcare_comment.user } #追加
     end
   end
 

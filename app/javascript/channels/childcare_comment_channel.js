@@ -3,7 +3,10 @@ import consumer from "./consumer"
 if(location.pathname.match(/\/childcares\/\d/)){
   
 
-consumer.subscriptions.create("ChildcareCommentChannel", {
+  consumer.subscriptions.create({
+    channel: "ChildcareCommentChannel",
+    childcare_id: location.pathname.match(/\d+/)[0]
+  }, {
   connected() {
     // Called when the subscription is ready for use on the server
   },
