@@ -5,7 +5,7 @@ class Event < ApplicationRecord
   validates :datetime,    presence: true
   validates :description, presence: true
   validates :image,       presence: true
-  validates :address,       presence: true
+  
 
   belongs_to :user
   has_one_attached :image
