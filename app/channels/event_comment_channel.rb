@@ -1,6 +1,7 @@
 class EventCommentChannel < ApplicationCable::Channel
   def subscribed
-    stream_from "event_comment_channel" #追加
+    @event = Event.find(params[:event_id]) # 追記
+    stream_for @event # 追記
   end
 
   def unsubscribed
