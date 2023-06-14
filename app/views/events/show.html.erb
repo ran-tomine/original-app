@@ -65,7 +65,7 @@
   <%#新しく追加%>
   <div class="comment-box">
   <% if user_signed_in? %>
-    <%= form_with(model: [@event, @event_comment], local: true) do |f| %>
+    <%= form_with(model: [@event, @event_comment], id: "comment-form", local: true) do |f| %>
     <%= f.label :content, "コメント" %><br />
     <%= f.text_field :content, id:"comment_text",class:"comment-text" %>
     <p class="comment-warn">
@@ -81,15 +81,18 @@
     </div>
     <% end %> 
   <% end %>
-  <ul class="comments_lists">
-    <% @event_comments.each do |comment| %>
-      <li class="comments_list">
-        <%=comment.content %>
-        <%= link_to comment.user.nickname, user_path(comment.user), class: :comment_user %>
-      </li>
-  <% end %>
-  </ul>
-</div>
+  </div>
+
+  <div id="comments">
+    <h4>＜コメント一覧＞</h4>
+      <% @event_comments.each do |comment| %>
+        <div class="comment">
+          <p class="user-info"><%= comment.user.nickname %>： </p>
+          <p><%= comment.content %></p>
+        </div>
+    <% end %>
+  </div>
+
 
   <%# /商品の概要 %>
 

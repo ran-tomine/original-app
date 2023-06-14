@@ -1,12 +1,9 @@
 class EventCommentsController < ApplicationController
   def create
     @event_comment = EventComment.new(event_comment_params)
+    @event = Event.find(params[:event_id]) #追加
     if @event_comment.save
-      redirect_to event_path(@event_comment.event)
-    else
-      @event = @event_comment.event
-      @event_comments = @event.event_comments
-      render "events/show"
+      EventCommentChannel.broadcast_to @event, { event_comment: @event_comment, user: @event_comment.user } #追加
     end
   end
 
