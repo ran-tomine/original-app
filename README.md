@@ -1,152 +1,79 @@
-# テーブル設計
+アプリケーション名
+MAMA NAVI
 
-## users テーブル
+アプリケーション概要
+ママ同士が育児日記の共有及びチャットでのコミュニティやイベントなどでのコミュニティーで交流ができる
 
-| Column             | Type   | Options                 |
-| ------------------ | ------ | ----------------------- |
-| nickname           | string | null: false             |
-| email              | string | null: false,unique:true |
-| encrypted_password | string | null: false             |
+URL
+https://originalapp.onrender.com
 
-### Association
-
-- has_many :childcares
-- has_many :childcare_comments
-- has_many :events
-- has_many :event_comments
-- has_many :active_relationships, class_name: "Relationship", foreign_key: :following_id
-- has_many :followings, through: :active_relationships, source: :follower
-- has_many :passive_relationships, class_name: "Relationship", foreign_key: :follower_id
-- has_many :followers, through: :passive_relationships, source: :following
-- has_many :likes
-- has_many :room_users
-- has_many :rooms, through: :room_users
-- has_many :messages
+テスト用アカウント
 
 
-## childcares テーブル
+利用方法
 
-| Column              | Type       | Options                        |
-| ------------------- | ---------- | ------------------------------ |
-| title               | string     | null: false                    |
-| diary               | text       | null: false                    |
-| user                | references | null: false, foreign_key: true |
+育児日記の投稿
+1.トップページのヘッダーからユーザーの新規登録を行う。
+2.新規育児日記登録ボタンから育児日記の内容（画像、タイトル、思い出）を入力して投稿する
+3.ユーザが登録した育児日記一覧が表示されその内容を見ることができる。
+4.他のユーザが自分が投稿した育児日記に対していいねボタンを押す事ができる。
 
+イベントの投稿
+1.トップページのヘッダーからユーザーの新規登録を行う。
+2.新規イベント登録ボタンからイベントの内容（画像、イベント名、場所、時間、説明、住所）を投稿する
+3.ユーザが登録したイベント一覧が表示されその内容を見る事ができる。
+4.ユーザが新規イベント登録で登録した住所からマップを表示して場所を確認する事ができる。
 
-### Association
+チャット機能
+1.トップページのヘッダーからユーザーの新規登録を行う。
+2.トップページのヘッダーからチャットボタンを押す。
+3.チャットルーム作成ボタンを押し、チャットを行いたいユーザーを選択する。
+4.チャットルームを選択するとユーザー同士でチャットを行う事ができる。
 
-- belongs_to :user
-- has_many   :childcare_comments, dependent: :destroy
-- has_many   :likes
-
-## childcare_comments テーブル
-
-| Column           | Type       | Options                        |
-| ---------------- | ---------- | ------------------------------ |
-| content          | text       | null: false                    |
-| childcare        | references | null: false, foreign_key: true |
-| user             | references | null: false, foreign_key: true |
-### Association
-
-- belongs_to :user
-- belongs_to :childcare
-
-## events テーブル
-
-| Column              | Type       | Options                        |
-| ------------------- | ---------- | ------------------------------ |
-| name                | string     | null: false                    |
-| location            | string     | null: false                    |
-| datetime            | datetime   | null: false                    |
-| description         | text       | null: false                    |
-| address             | string     |                                |
-| latitude            | float      |                                |
-| longitude           | float      |                                |
-| user                | references | null: false, foreign_key: true |
-
-### Association
-
-- belongs_to :user
-- has_many :event_comments, dependent: :destroy
-
-## event_comments テーブル
-
-| Column              | Type       | Options                        |
-| ------------------- | ---------- | ------------------------------ |
-| content             | text       | null: false                    |
-| event               | references | null: false, foreign_key: true |
-| user                | references | null: false, foreign_key: true |
+ユーザー機能
+1.トップページのヘッダーからユーザーの新規登録を行う。
+2.ユーザーのマイページを開きユーザー情報だけでなく、フォロー、フォロワー情報を確認する事ができる。
 
 
-### Association
+アプリケーションを作成した背景
 
-- belongs_to :user
-- belongs_to :event
+結婚を期に妻が私の地元である茨城県に埼玉県から引っ越してきました。
+妻にとっては新天地で友達も誰もいない中で初めての子育てと精神的にも負担が沢山かかってしまいました。
+その中で妻はママ友アプリを登録して、ママ同士で連絡を取るようになりました。
+連絡の手段がラインとの事と、会うと言ってもやはりマッチング独特の怖さがあるとの事で２人会うまでには至らなかったとのことです。
+そこでその課題を解決したいと考えました。
+1つが連絡の手段をラインではなく、ママ友アプリの中で完結したいとう事と２人で会う事に抵抗があるのであればママ同士のイベントに参加するのは
+どうかと考えました。
+上記の内容を踏まえてママ友アプリでもあり、イベント情報なども加えたママナビアプリを開発することにしました。
 
-## likes テーブル
+洗い出した要件
 
-| Column              | Type       | Options                        |
-| ------------------- | ---------- | ------------------------------ |
-| user                | references | null: false, foreign_key: true |
-| childcare           | references | null: false, foreign_key: true |
+https://docs.google.com/spreadsheets/d/1vn9CRpXnnsb4lajIkhbxc1_xFK2ngX5TRnXV14ycuC4/edit#gid=982722306
 
-
-### Association
-
-- belongs_to :user
-- belongs_to :childcare
-
-## relationships テーブル
-
-| Column              | Type       | Options                        |
-| ------------------- | ---------- | ------------------------------ |
-| following           | references |                                |
-| follower            | references |                                |
+実装した機能についての画像やGIFおよびその説明※
 
 
-### Association
 
-- has_many :active_relationships, class_name: "Relationship", foreign_key: :following_id
-- has_many :passive_relationships, class_name: "Relationship", foreign_key: :follower_id
-- has_many :followings, through: :active_relationships, source: :follower
-- has_many :followers, through: :passive_relationships, source: :following
-
-## rooms テーブル
-
-| Column              | Type       | Options                        |
-| ------------------- | ---------- | ------------------------------ |
-| name                | string     | null: false                    |
+実装予定の機能
+今後検索機能とチャットの非同期化を実装中
 
 
-### Association
 
-- has_many :room_users, dependent: :destroy
-- has_many :users, through: :room_users
-- has_many :messages, dependent: :destroy
+データベース設計
+https://gyazo.com/6fdf0a9b64ab409e0df2f4088c20e4d4
 
-## room_users テーブル
+画面遷移図
+https://gyazo.com/b9682b94ce20a3b4e2e36e0ca691a907
 
-| Column              | Type       | Options                        |
-| ------------------- | ---------- | ------------------------------ |
-| room                | references | null: false, foreign_key: true |
-| user                | references | null: false, foreign_key: true |
+開発環境
+・フロントエンド
+・バックエンド
+・インフラ
+・テスト
+・テキストエディタ
+・タスク管理
 
-
-### Association
-
-- belongs_to :room
-- belongs_to :user
-
-## messages テーブル
-
-| Column              | Type       | Options                        |
-| ------------------- | ---------- | ------------------------------ |
-| content             | string     |                                |
-| room                | references | null: false, foreign_key: true |
-| user                | references | null: false, foreign_key: true |
+ローカルでの動作方法※
 
 
-### Association
-
-- belongs_to :room
-- belongs_to :user
+工夫したポイント※	制
