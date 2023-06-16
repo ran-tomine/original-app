@@ -17,7 +17,7 @@ if(location.pathname.match(/\/childcares\/\d/)){
 
   received(data) {
     const html = `
-    <div class="comment">
+    <div class="comment" style="display: flex;">
     <p class="user-info">${data.user.nickname}： </p>
     <p>${data.childcare_comment.content}</p>
     </div>`

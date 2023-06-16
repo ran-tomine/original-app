@@ -1,13 +1,19 @@
-<% if user_signed_in? && @childcare.liked_by?(current_user)%>
-  <%=link_to "いいね済", childcare_likes_path(childcare.id),  method: :delete, class: "tweet_likes" , remote: true %>
-<% else %>
-  <%=link_to "いいねする", childcare_likes_path(childcare.id), method: :post, class: "tweet_likes" , remote: true %>
-<% end %>
+<div style="display: flex; align-items: center; font-size: 20px;">
+  <% if user_signed_in? && @childcare.liked_by?(current_user) %>
+    <%= link_to childcare_likes_path(childcare.id), method: :delete, remote: true, class: "btn btn-danger tweet_likes" do %>
+      <button type="button" class="btn btn-danger">いいね済</button>
+    <% end %>
+  <% else %>
+    <%= link_to childcare_likes_path(childcare.id), method: :post, class: "btn btn-danger tweet_likes", remote: true do %>
+      <button type="button" class="btn btn-danger">いいねする</button>
+    <% end %>
+  <% end %>
 
-<div>
-<span class="like-count">
-  <%= "いいね数#{@childcare.likes.count}" %>
-</span>
+  <%= image_tag "heart.svg", class: "report-flag-icon", width: 20, height: 20,style: "margin-left: 15px;" %>
+  
+  <span class="like-count">
+    <%= "いいね数#{childcare.likes.count}" %>
+  </span>
+
+  <%= image_tag "heart.svg", class: "report-flag-icon", width: 20, height: 20 %>
 </div>
-
- 

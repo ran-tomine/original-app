@@ -2,37 +2,32 @@
 
 <%# 商品の概要 %>
 <div class="item-show">
-  <div class="item-box">
-    <h2 class="name">
-      <%= @childcare.title %><br>
-      <%= link_to "by #{@childcare.user.nickname}", user_path(@childcare.user.id), class: :card__user %>
+  <div class="item-box" style="border-radius: 20px;">
+    <h2 class="name" style="font-size: 50px;">
+      <%= @childcare.title %>
     </h2>
     <%# 追加 %>
     <div class="tweet">
-      <p class = "tweet-text"><%= @childcare.title %></p>
-      <div class="tweet-name">
-        <%= link_to  "投稿者：#{@childcare.title}", user_path(@childcare.user)%>
-      </div>
-      <div id="like-btn<%= @childcare.id %>">
-        <%= render partial: "childcares/like", locals: {childcare: @childcare } %>
-      </div>
-    </div>
+  <div class="tweet-name" style="font-size: 20px; text-align: center;">
+    <%= link_to "投稿者：#{current_user.nickname}", user_path(current_user), style: "text-decoration: none; color: black;" %>
+  </div>
+  <div id="like-btn<%= @childcare.id %>">
+    <%= render partial: "childcares/like", locals: {childcare: @childcare } %>
+  </div>
+</div>
     <%# 追加 %>
-    <div class="item-img-content">
-      <%= image_tag @childcare.image.variant(resize: '500x500') ,class:"item-box-img" if @childcare.image.attached?%>
-    </div>
-    <div class="item-price-box">
-      <span class="item-price">
-        <%= @childcare.diary %>
-      </span>
-    </div>
+    <div class="item-img-content" style="margin-top: 20px;">
+  <% if @childcare.image.attached? %>
+    <%= image_tag @childcare.image.variant(resize: '500x500'), class: "item-box-img rounded-circle" %>
+  <% end %>
+</div>
 
     <%# ログインしているユーザーと出品しているユーザーが、同一人物の場合と同一人物ではない場合で、処理を分けましょう %>
     <% if user_signed_in? %> 
       <% if current_user.id == @childcare.user_id %>
-      <%= link_to "商品の編集",edit_childcare_path(@childcare.id), method: :get, class: "item-red-btn" %>
+     <%= link_to "内容の編集", edit_childcare_path(@childcare.id), method: :get, class: "item-red-btn", style: "border-radius: 30px; text-decoration: none;" %>
       <p class="or-text">or</p>
-      <%= link_to "削除",childcare_path(@childcare.id), method: :delete, class:"item-destroy" %>
+      <%= link_to "削除", childcare_path(@childcare.id), method: :delete, class: "item-destroy", style: "border-radius: 30px; text-decoration: none;" %>
       <%end%>
     <% end %>
 
@@ -44,7 +39,7 @@
     <table class="detail-table">
       <tbody>
         <tr>
-          <th class="detail-item">投稿者</th>
+          <th class="detail-item" >投稿者</th>
           <td class="detail-value"><%= @childcare.user.nickname %></td>
         </tr>
         <tr>
@@ -53,16 +48,6 @@
         </tr>
       </tbody>
     </table>
-    <div class="option">
-      <div class="favorite-btn">
-        <%= image_tag "star.png" ,class:"favorite-star-icon" ,width:"20",height:"20"%>
-        <span>お気に入り 0</span>
-      </div>
-      <div class="report-btn">
-        <%= image_tag "flag.png" ,class:"report-flag-icon" ,width:"20",height:"20"%>
-        <span>不適切な商品の通報</span>
-      </div>
-    </div>
   </div>
 
 
@@ -87,10 +72,10 @@
   <% end %>
 </div>
 
-<div id="comments">
+<div id="comments" style="background-color:white; border-radius: 50px; padding: 10px 100px 10px 100px;">
   <h4>＜コメント一覧＞</h4>
     <% @childcare_comments.each do |comment| %>
-      <div class="comment">
+      <div class="comment" style="display: flex;">
         <p class="user-info"><%= comment.user.nickname %>： </p>
         <p><%= comment.content %></p>
       </div>
@@ -101,15 +86,12 @@
 
   <div class="links">
     <a href="#" class="change-item-btn">
-      ＜ 前の商品
+      ＜ 前の投稿
     </a>
     <a href="#" class="change-item-btn">
-      後ろの商品 ＞
+      後ろの投稿 ＞
     </a>
   </div>
-  <%# 詳細ページで表示されている商品のカテゴリー名を表示しましょう %>
-  <a href="#" class="another-item"><%= "商品のカテゴリー名" %>をもっと見る</a>
-  <%# //詳細ページで表示されている商品のカテゴリー名を表示しましょう %>
 </div>
 
 <%= render "shared/footer" %>

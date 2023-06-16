@@ -23,6 +23,7 @@
   text-align: center;
   font-weight: bold;
   font-size: 25px;
+
 }
 
 .item-box-img {
@@ -177,8 +178,8 @@
 
 .comment-btn {
   line-height: 48px;
-  background-color: #3CCACE;
-  border: 1px solid #3CCACE;
+  background-color: #FFC6E3;
+  border: 1px solid #FFC6E3;
   color: #fff;
   width: 50%;
   min-width: 150px;
@@ -217,5 +218,6 @@
   font-weight: bold;
   font-size: 23px;
 }
+
 
 
