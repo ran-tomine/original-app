@@ -64,32 +64,32 @@
     <ul class='item-lists'>
 
      <% @events.each do |event| %>
-      <li class='list card' style="width: 18rem;">
+      <li class="card" style="width: 18rem; margin: 10px;">
 
       <div class='item-img-content'>
-    <%= image_tag event.image.variant(resize: '500x500'), class: "item-img card-img-top" if event.image.attached? %>
+    <%= image_tag event.image.variant(resize:'500x500'), class: "item-img card-img-top" if event.image.attached? %>
       </div>
         <div class='item-info card-body'>
-          <h3 class='card-title'>
+          <h5 class='card-title'>
             イベント名<br>
             <%= event.name %>
-          </h3>
-          <div class='card-text'>
-  
-            <div style="margin-top: 10px;">日付</div>
+          </h5>
+          <p class="card-text"><%= event.description%></p>
+        </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">日付<br>
             <%= event.datetime %>
-            
-            <div style="margin-top: 10px;">場所<div>
+            </li>
+            <li class="list-group-item">場所<br>
             <%= event.location %>
-
-            <div style="margin-top: 10px;">説明</div>
-            <%= event.description%>
-            
-          </div>
+            </li>
+            </ul>
+          <%= link_to event_path(event.id),class: "btn btn-primary" do %>
+            イベント詳細
+             <% end %>
         </li>
-        <%= link_to event_path(event.id), style: "text-decoration: none;" do %>
       <% end %>
-      <% end %>
+
 
       <% if @events.empty?%>
       <li class='list'>
@@ -164,8 +164,6 @@
       思い出
     </div>
     <ul class='item-lists'>
-
-      
       <% @childcares.each do |childcare| %>
         <li class='list'>
       <%= link_to childcare_path(childcare.id) do %>
@@ -209,12 +207,11 @@
         <% end %>
       </li>
       <% end %>
-
-
     </ul>
   </div>
   <%# /商品一覧 %>
-</div>
+  
+
 
 <%= link_to(new_childcare_path, class: 'purchase-btn') do %>
   <span class='purchase-btn-text'>投稿する</span>
