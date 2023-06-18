@@ -15,11 +15,11 @@
          <% end %>
 
 
-         <%= link_to user_followings_path(@user) do %>
+         <%= link_to user_followings_path(@user), style: "text-decoration: none; color: black;" do %>
          <h3>フォロー (<%= @user.followings.count %>人)</h3>
          <% end %>
 
-         <%= link_to user_followers_path(@user) do %>
+         <%= link_to user_followers_path(@user), style: "text-decoration: none; color: black;" do %>
          <h3>フォロワー (<%= @user.followers.count %>人)</h3>
          <% end %>
 
@@ -36,7 +36,7 @@
           </tbody>
         </table>
         <h2 class="page-heading">
-          <%= @user.nickname%>さんのプロトタイプ
+          <%= @user.nickname%>さんの育児日記
         </h2>
         <div class="user__card">
           <%= render partial: "childcares/childcare", collection: @user.childcares %>
@@ -45,4 +45,4 @@
     </div>
   </div>
 </div>
-<%= render "shared/footer" %>
+
