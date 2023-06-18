@@ -43,6 +43,7 @@ class ChildcaresController < ApplicationController
 
   def destroy
     childcare = Childcare.find(params[:id])
+    childcare.likes.destroy_all # 関連するlikesレコードを削除
     childcare.destroy
     redirect_to root_path
   end

@@ -58,7 +58,7 @@
   <% if user_signed_in? %>
     <%= form_with(model: [@childcare, @childcare_comment], id: "comment-form", local: true) do |f| %>
     <%= f.label :content, "コメント" %><br />
-    <%= f.text_field :content, id:"comment_text",class:"comment-text" %>
+    <%= f.text_field :content, id:"comment_text",class:"comment-text", rows: "3" %>
     <p class="comment-warn">
         相手のことを考え丁寧なコメントを心がけましょう。
         <br>

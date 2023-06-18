@@ -51,9 +51,7 @@
 
   <%# FURIMAが選ばれる3つの理由部分 %>
   
-    <div style="display: flex; justify-content: center;">
-      <h2 class="title" style="font-size: 50px;">イベント詳細</h2>
-    </div>
+   
 
      <%# 追加内容 %>
     <div class='item-contents'>
@@ -84,7 +82,7 @@
             <%= event.location %>
             </li>
             </ul>
-          <%= link_to event_path(event.id),class: "btn btn-primary" do %>
+          <%= link_to event_path(event.id), class: "btn", style: "background-color: #FFC6E3;" do %>
             イベント詳細
              <% end %>
         </li>
