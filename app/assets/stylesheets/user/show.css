@@ -1,7 +1,6 @@
 /* ユーザーページ */
 .main1{
   background-color:#F8F8F8;
-  display: flex;
   justify-content: center;
   align-items: center; 
   height: 100vh;
