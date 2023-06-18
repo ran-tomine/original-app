@@ -3,7 +3,7 @@
 <div class='main'>
 
   <%# 画面上部の「人生を変えるフリマアプリ」帯部分 %>
-  <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+  <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel" style="z-index: 1;">
   <div class="carousel-indicators">
     <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
     <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
@@ -63,9 +63,8 @@
 
      <% @events.each do |event| %>
       <li class="card" style="width: 18rem; margin: 10px;">
-
       <div class='item-img-content'>
-    <%= image_tag event.image.variant(resize:'500x500'), class: "item-img card-img-top" if event.image.attached? %>
+        <%= image_tag event.image.variant(resize:'500x500'), class: "item-img card-img-top" if event.image.attached? %>
       </div>
         <div class='item-info card-body'>
           <h5 class='card-title'>
@@ -76,39 +75,44 @@
         </div>
           <ul class="list-group list-group-flush">
             <li class="list-group-item">日付<br>
-            <%= event.datetime %>
+              <%= event.datetime %>
             </li>
             <li class="list-group-item">場所<br>
-            <%= event.location %>
+              <%= event.location %>
             </li>
-            </ul>
+          </ul>
           <%= link_to event_path(event.id), class: "btn", style: "background-color: #FFC6E3;" do %>
             イベント詳細
-             <% end %>
-        </li>
-      <% end %>
+          <% end %>
+      </li>
+    <% end %>
 
 
       <% if @events.empty?%>
-      <li class='list'>
-        <%= link_to '#' do %>
-        <%= image_tag "https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-4/sample.jpg", class: "item-img" %>
-        <div class='item-info'>
-          <h3 class='item-name'>
-            商品を出品してね！
-          </h3>
-          <div class='item-price'>
-            <span>99999999円<br>(税込み)</span>
-            <div class='star-btn'>
-              <%= image_tag "star.png", class:"star-icon" %>
-              <span class='star-count'>0</span>
-            </div>
-          </div>
+      <li class="card" style="width: 18rem; margin: 10px;">
+      <div class='item-img-content'>
+        <%= image_tag "https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-4/sample.jpg", class: "item-img", style: "width: 286px;" %>
+      </div>
+        <div class='item-info card-body'>
+          <h5 class='card-title'>
+            イベント名<br>
+            イベントを入力してね！
+          </h5>
+           <p class="card-text">説明を入力してね！</p>
         </div>
-        <% end %>
+            <ul class="list-group list-group-flush">
+            <li class="list-group-item">日付<br>
+              日付を入力してね！
+            </li>
+            <li class="list-group-item">場所<br>
+              場所を入力してね！
+            </li>
+          </ul>
+          <%= link_to '#', class: "btn", style: "background-color: #FFC6E3;" do %>
+            イベント詳細
+          <% end %>
       </li>
       <% end %>
-
        </ul>
   </div>
      <%# 追加内容 %>
@@ -155,70 +159,51 @@
     </ul>
   </div>
   
-  <%# 商品一覧 %>
-  <div class='item-contents'>
-    <h2 class='title'>育児日記一覧</h2>
-    <div class="subtitle" >
+  
+  
+  <%# 育児日記一覧 %>
+
+    <div class="container marketing" style="background-color: white;">
+    <h2 class="title" style="font-size: 40px; font-weight: bold; text-align: center; margin: 50px 0px 20px 0px;">育児日記一覧</h2>
+    <div class="subtitle" style="font-size:25px; font-weight: bold ; text-align: center ; color:#FFC6E3; margin-bottom:20px;"  >
       思い出
     </div>
-    <ul class='item-lists'>
+    <!-- Three columns of text below the carousel -->
+    <div class="row" style="justify-content: center;">
       <% @childcares.each do |childcare| %>
-        <li class='list'>
-      <%= link_to childcare_path(childcare.id) do %>
-        <div class='item-img-content'>
-      <%= image_tag childcare.image.variant(resize: '500x500'), class: "item-img" if childcare.image.attached? %>
-        </div>
-          <div class='item-info'>
-            <h3 class='item-name'>
-              <%= childcare.title %>
-            </h3>
-            <div class='item-price'>
-              <span><%= childcare.diary %>円<br>
-              </span>
-              <div class='star-btn'>
-                <%= image_tag "star.png", class:"star-icon" %>
-                <span class='star-count'>0</span>
-              </div>
-            </div>
-          </div>
-        </li>
-      <% end %>
-      <% end %>
-
-
-      <% if @childcares.empty?%>
-      <li class='list'>
-        <%= link_to '#' do %>
-        <%= image_tag "https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-4/sample.jpg", class: "item-img" %>
-        <div class='item-info'>
-          <h3 class='item-name'>
-            商品を出品してね！
-          </h3>
-          <div class='item-price'>
-            <span>99999999円<br>(税込み)</span>
-            <div class='star-btn'>
-              <%= image_tag "star.png", class:"star-icon" %>
-              <span class='star-count'>0</span>
-            </div>
-          </div>
-        </div>
+      <div class="col-lg-4">
+        <%= image_tag childcare.image, class: "bd-placeholder-img rounded-circle", width: "140", height: "140" %>
+        <h2><%= childcare.title %></h2>
+        <p><%= childcare.diary %></p>
+        <%= link_to childcare_path(childcare.id), class: "btn btn-secondary" do %>
+          日記を読む &raquo;
         <% end %>
-      </li>
-      <% end %>
-    </ul>
-  </div>
-  <%# /商品一覧 %>
-  
+      </div><!-- /.col-lg-4 -->
+      <%end%>
+    </div><!-- /.row -->
 
+    <div class="row" style="justify-content: center;">
+      <div class="col-lg-4">
+      <% if @childcares.empty?%>
+        <%= image_tag "https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-4/sample.jpg", class: "bd-placeholder-img rounded-circle", width: "140", height: "140" %>
+        <h2>日記を投稿してね！</h2>
+        <p>思い出</p>
+        <p><a class="btn btn-secondary" href="#">View details &raquo;</a></p>
+      </div><!-- /.col-lg-4 -->
+      <%end%>
+    </div>
+   </div>  
+  
+<%#　育児日記一覧 %>
 
 <%= link_to(new_childcare_path, class: 'purchase-btn', style: 'text-decoration: none;') do %>
-  <span class='purchase-btn-text'>日記投稿</span>
+  <span class='purchase-btn-text'>育児日記</span>
   <%= image_tag 'book.svg' , size: '185x50' ,class: "purchase-btn-icon" %>
 <% end %>
 
 <div>
 <%= link_to(new_event_path, class: 'purchase-btn-left', style: 'text-decoration: none;') do %>
-  <span class='purchase-btn-text-left'>投稿する</span>
+  <span class='purchase-btn-text-left'>イベント</span>
   <%= image_tag 'shop-window.svg', size: '185x50' ,class: "purchase-btn-icon-left"  %>
 <% end %>
 </div>

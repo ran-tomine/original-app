@@ -10,10 +10,12 @@
     </h2>
     <%# 追加 %>
     <div class="tweet">
-  <div class="tweet-name" style="font-size: 20px; text-align: center;">
-    <%= link_to "投稿者：#{current_user.nickname}", user_path(current_user), style: "text-decoration: none; color: black;" %>
-  </div>
-  <div id="like-btn<%= @childcare.id %>">
+      <% if user_signed_in? %>
+      <div class="tweet-name" style="font-size: 20px; text-align: center;">
+        <%= link_to "投稿者：#{current_user.nickname}", user_path(current_user), style: "text-decoration: none; color: black;" %>
+      </div>
+      <% end %>
+    <div id="like-btn<%= @childcare.id %>">
     <%= render partial: "childcares/like", locals: {childcare: @childcare } %>
   </div>
 </div>
@@ -58,7 +60,7 @@
   <% if user_signed_in? %>
     <%= form_with(model: [@childcare, @childcare_comment], id: "comment-form", local: true) do |f| %>
     <%= f.label :content, "コメント" %><br />
-    <%= f.text_field :content, id:"comment_text",class:"comment-text", rows: "3" %>
+    <%= f.text_field :content, id:"comment_text",class:"comment-text" %>
     <p class="comment-warn">
         相手のことを考え丁寧なコメントを心がけましょう。
         <br>

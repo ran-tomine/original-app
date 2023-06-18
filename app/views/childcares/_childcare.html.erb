@@ -1,10 +1,11 @@
-<div class="card">
-  <%= link_to (image_tag (childcare.image), class: :card__img ), childcare_path(childcare.id)%>
-  <div class="card__body">
-    <%= link_to childcare.title, childcare_path(childcare.id), class: :card__title%>
-    <p class="card__summary">
-      <%= childcare.diary %>
-    </p>
-    <%= link_to "by #{childcare.user.nickname}", user_path(childcare.user.id), class: :card__user %>
+
+
+<div class="card mb-3">
+  <%= link_to(childcare_path(childcare.id)) do %>
+  <%= image_tag(childcare.image, class: "card__img", size: "322x201", style: "object-fit: cover; ") %>
+  <% end %>
+  <div class="card-body">
+    <h5 class="card-title"><%= link_to childcare.title, childcare_path(childcare.id), class: "card__title", style: "text-decoration: none; color: black;" %></h5>
+    <p class="card-text"><%= childcare.diary %></p>
   </div>
 </div>

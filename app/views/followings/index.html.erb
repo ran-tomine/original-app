@@ -1,19 +1,24 @@
 <%= render "shared/header" %>
 
-
 <div class="items-sell-main">
-  <h1 class="items-sell-title bg-primary">カテゴリー</h1>
+ <ul class="list-group">
+  <h1 class="items-sell-title">カテゴリー</h1>
+  <li class="list-group-item" style="background-color:#FFC6E3;">ユーザ一覧</li>
   <% unfollowed_users = User.where.not(id: @user.followings.pluck(:id)).where.not(id: @user.id).order("RAND()").limit(5).to_a %>
   <% unfollowed_users.shuffle.each do |user| %>
-    <p class="f-user"><%= link_to user.nickname, user_path(user) %></p>
+  <li class="list-group-item"><%= link_to user.nickname, user_path(user), style: "text-decoration: none; color: black;" %></li>
   <% end %>
+</ul>
 </div>
 
- <div class="items-sell-main">
+<div class="items-sell-main">
+ <ul class="list-group">
   <h1 class="items-sell-title">フォローメンバー</h1>
+  <li class="list-group-item" style="background-color:#FFC6E3;">ユーザ一覧</li>
   <% @followings.each do |user| %>
-    <p class="f-user"><%= link_to user.nickname, user_path(user) %></p>
+  <li class="list-group-item"><%= link_to user.nickname, user_path(user), style: "text-decoration: none; color: black;" %></li>
   <% end %>
- </div>
+</ul>
+</div>
 
  <%= render "shared/footer" %>
