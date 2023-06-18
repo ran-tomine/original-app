@@ -3,7 +3,7 @@
 <div class='main'>
 
   <%# 画面上部の「人生を変えるフリマアプリ」帯部分 %>
-  <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+  <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel" style="z-index: 1;">
   <div class="carousel-indicators">
     <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
     <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
@@ -212,13 +212,13 @@
 
 
 <%= link_to(new_childcare_path, class: 'purchase-btn', style: 'text-decoration: none;') do %>
-  <span class='purchase-btn-text'>日記投稿</span>
+  <span class='purchase-btn-text'>育児日記</span>
   <%= image_tag 'book.svg' , size: '185x50' ,class: "purchase-btn-icon" %>
 <% end %>
 
 <div>
 <%= link_to(new_event_path, class: 'purchase-btn-left', style: 'text-decoration: none;') do %>
-  <span class='purchase-btn-text-left'>投稿する</span>
+  <span class='purchase-btn-text-left'>イベント</span>
   <%= image_tag 'shop-window.svg', size: '185x50' ,class: "purchase-btn-icon-left"  %>
 <% end %>
 </div>
