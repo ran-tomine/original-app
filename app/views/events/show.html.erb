@@ -8,59 +8,59 @@
 
     </h2>
     <div class="item-img-content">
-      <%= image_tag @event.image.variant(resize: '500x500'), class: "item-box-img" if @event.image.attached? %>
+      <%= image_tag @event.image.variant(resize: '500x500'), class: "item-box-img rounded" if @event.image.attached? %>
     </div>
     <% if user_signed_in? %> 
       <% if current_user.id == @event.user_id%> 
-      <%= link_to "商品の編集",edit_event_path(@event.id), method: :get, class: "item-red-btn" %>
+      <%= link_to "商品の編集", edit_event_path(@event.id), method: :get, class: "item-red-btn", style: "text-decoration: none; border-radius: 30px;" %>
       <p class="or-text">or</p>
-      <%= link_to "削除",event_path(@event.id) , method: :delete, class:"item-destroy" %>
+      <%= link_to "削除", event_path(@event.id), method: :delete, class: "item-destroy", style: "text-decoration: none; border-radius: 30px;" %>
       <% end %>
     <% end %>
     
-
     <div class="item-explain-box">
       <span><%= @event.name %></span>
     </div>
+
+  
     <table class="detail-table">
       <tbody>
         <tr>
-          <th class="detail-item">出品者</th>
+          <th class="detail-item">投稿者</th>
           <td class="detail-value"><%= @event.user.nickname %></td>
         </tr>
         <tr>
-          <th class="detail-item">カテゴリー</th>
+          <th class="detail-item">場所</th>
           <td class="detail-value">
             <%= @event.location%>
           </td>
         </tr>
         <tr>
-          <th class="detail-item">商品の状態</th>
+          <th class="detail-item">日付</th>
           <td class="detail-value">
           <%= @event.datetime%>
           </td>
         </tr>
         <tr>
-          <th class="detail-item">配送料の負担</th>
+          <th class="detail-item">説明</th>
           <td class="detail-value">
           <%= @event.description%>
+          
+          </td>
+        </tr>
+        <tr>
+          <th class="detail-item">住所</th>
+          <td class="detail-value">
+          <%= @event.address%>
           
           </td>
         </tr>
         
       </tbody>
     </table>
-    <div class="option">
-      <div class="favorite-btn">
-        <%= image_tag "star.png" ,class:"favorite-star-icon" ,width:"20",height:"20"%>
-        <span>お気に入り 0</span>
-      </div>
-      <div class="report-btn">
-        <%= image_tag "flag.png" ,class:"report-flag-icon" ,width:"20",height:"20"%>
-        <span>不適切な商品の通報</span>
-      </div>
-    </div>
   </div>
+
+  
 
   <%#新しく追加%>
   <div class="comment-box">
@@ -83,10 +83,10 @@
   <% end %>
   </div>
 
-  <div id="comments">
+  <div id="comments" style="background-color:white; border-radius: 50px; padding: 10px 100px 10px 100px;">
     <h4>＜コメント一覧＞</h4>
       <% @event_comments.each do |comment| %>
-        <div class="comment">
+        <div class="comment" style="display: flex;">
           <p class="user-info"><%= comment.user.nickname %>： </p>
           <p><%= comment.content %></p>
         </div>
@@ -104,8 +104,6 @@
       後ろの商品 ＞
     </a>
   </div>
-  
-   <a href="#" class="another-item"><%= @event.name %>をもっと見る</a>
   
 </div>
 

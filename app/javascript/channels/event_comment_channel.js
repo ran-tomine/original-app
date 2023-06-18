@@ -17,7 +17,7 @@ if(location.pathname.match(/\/events\/\d/)){
 
   received(data) {
     const html = `
-    <div class="comment">
+    <div class="comment" style="display: flex;">
       <p class="user-info">${data.user.nickname}： </p>
       <p>${data.event_comment.content}</p>
     </div>`

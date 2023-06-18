@@ -1,4 +1,5 @@
 class EventsController < ApplicationController
+  before_action :authenticate_user!, only: [:new, :destroy]
 
 def new
   @event = Event.new
