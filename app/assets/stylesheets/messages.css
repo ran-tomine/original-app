@@ -4,7 +4,6 @@
 .side-bar {
   background-color: #253141;
   width: 300px;
-  height: 100vh;
 }
 
 .side-bar-header {
@@ -32,7 +31,7 @@
 
 .rooms {
   background-color: #2F3E51;
-  height: calc(100vh - 100px);
+  height: calc(100vh - 100px - 167px);
   padding: 0 20px;
   overflow: scroll;
 }
@@ -78,7 +77,7 @@
 
 .messages {
   background-color: #FAFAFA;
-  height: calc(100vh - 100px - 90px);
+  height: calc(100vh - 100px - 90px -167px);
   padding: 46px 40px 0;
   overflow: scroll;
 }
