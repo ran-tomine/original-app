@@ -2,14 +2,15 @@
   display: flex;
 }
 .side-bar {
-  background-color: #253141;
+  background-color: #FFC6E3;
   width: 300px;
+  height: 100vh;
 }
 
 .side-bar-header {
   height: 100px;
   padding: 0 20px;
-  background-color: #253141;
+  background-color: #FFC6E3;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -17,21 +18,22 @@
 
 .header-name a{
   font-size: 16px;
-  color: #FAFAFA;
+  color: black;
   text-decoration: none;
 }
 
 .create-room a {
   font-size: 10px;
-  border: 1px solid lightblue;
+  border: 1px solid black;
   padding: 14px;
-  color: deepskyblue;
+  color: black;
   text-decoration: none;
+  border-radius: 30px; 
 }
 
 .rooms {
-  background-color: #2F3E51;
-  height: calc(100vh - 100px - 167px);
+  background-color: pink;
+  height: calc(100vh - 100px);
   padding: 0 20px;
   overflow: scroll;
 }
@@ -42,7 +44,7 @@
 
 .room-name a {
   text-decoration: none;
-  color: white;
+  color: black;
 }
 
 
@@ -70,14 +72,14 @@
 
 .header-button a {
   text-decoration: none;
-  border: 1px solid darkred;
-  color: darkred;
+  border: 1px solid #6C757D;
+  color: #6C757D;
   padding: 20px;
 }
 
 .messages {
   background-color: #FAFAFA;
-  height: calc(100vh - 100px - 90px -167px);
+  height: calc(100vh - 100px - 90px);
   padding: 46px 40px 0;
   overflow: scroll;
 }
@@ -121,7 +123,7 @@
 .form-input {
   background-color: white;
   width: 100%;
-  display: flex;
+  display: flex; 
 }
 
 .form-message {
@@ -139,6 +141,7 @@
   height: 50px;
   margin-left: 15px;
   padding: 0 20px;
+  border-radius: 30px; 
 }
 
 .form-image {
@@ -149,6 +152,7 @@
   width: 60px;
   margin: 5px 10px;
   text-align: center;
+  border-radius: 30px; 
 }
 
 .hidden {
