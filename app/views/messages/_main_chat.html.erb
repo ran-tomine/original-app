@@ -1,15 +1,17 @@
 <div class="chat-header">
   <div class="left-header">
     <div class="header-title">
-      <%= @room.name %>
+      <% other_user = @room.users.find { |user| user != current_user } %>
+      <%= other_user.nickname if other_user %> <!-- 他のユーザーのニックネームを表示 -->
     </div>
   </div>
   <div class="right-header">
     <div class="header-button">
-      <%= link_to "チャットを終了する", room_path(@room), method: :delete, style: "border-radius: 30px;" %>
+      <%= link_to "チャットを終了する", room_path(@room), method: :delete, style: "border-radius: 30px; color:#6C757D;" %>
     </div>
   </div>
 </div>
+
 
 <div class="messages">
   <%= render partial: 'message', collection: @messages %>

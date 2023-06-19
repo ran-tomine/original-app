@@ -29,7 +29,7 @@
       </div>
     </div>
     <div class="carousel-item">
-      <img src="<%= asset_url('park.jpeg') %>" class="d-block w-100" alt="...">
+      <img src="<%= asset_url('family02.jpeg') %>" class="d-block w-100" alt="...">
       <div class="carousel-caption d-none d-md-block">
         <h5>Third slide label</h5>
         <p>Some representative placeholder content for the third slide.</p>
@@ -55,24 +55,24 @@
 
      <%# 追加内容 %>
     <div class='item-contents'>
-    <h2 class='title'>イベント一覧</h2>
-    <div class="subtitle" >
-      イベント場所と詳細
-    </div>
-    <ul class='item-lists'>
-
-     <% @events.each do |event| %>
-      <li class="card" style="width: 18rem; margin: 10px;">
-      <div class='item-img-content'>
-        <%= image_tag event.image.variant(resize:'500x500'), class: "item-img card-img-top" if event.image.attached? %>
-      </div>
-        <div class='item-info card-body'>
-          <h5 class='card-title'>
-            イベント名<br>
-            <%= event.name %>
-          </h5>
-          <p class="card-text"><%= event.description%></p>
-        </div>
+  <h2 class='title'>イベント一覧</h2>
+  <div class="subtitle">
+    イベント場所と詳細
+  </div>
+  <div style="overflow-x: auto; white-space: nowrap;">
+    <ul class='item-lists' style="display: inline-block;">
+      <% @events.each do |event| %>
+        <li class="card" style="width: 18rem; margin: 10px; display: inline-block;">
+          <div class='item-img-content'>
+            <%= image_tag event.image.variant(resize:'500x500'), class: "item-img card-img-top" if event.image.attached? %>
+          </div>
+          <div class='item-info card-body'>
+            <h5 class='card-title'>
+              イベント名<br>
+              <%= event.name %>
+            </h5>
+            <p class="card-text"><%= event.description%></p>
+          </div>
           <ul class="list-group list-group-flush">
             <li class="list-group-item">日付<br>
               <%= event.datetime %>
@@ -81,26 +81,25 @@
               <%= event.location %>
             </li>
           </ul>
-          <%= link_to event_path(event.id), class: "btn", style: "background-color: #FFC6E3;" do %>
+          <%= link_to event_path(event.id), class: "btn", style: "background-color: #FFC6E3; width: 100%;", onmouseover: "this.style.backgroundColor='#FEC0CA';", onmouseout: "this.style.backgroundColor='#FFC6E3';" do %>
             イベント詳細
           <% end %>
-      </li>
-    <% end %>
+        </li>
+      <% end %>
 
-
-      <% if @events.empty?%>
-      <li class="card" style="width: 18rem; margin: 10px;">
-      <div class='item-img-content'>
-        <%= image_tag "https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-4/sample.jpg", class: "item-img", style: "width: 286px;" %>
-      </div>
-        <div class='item-info card-body'>
-          <h5 class='card-title'>
-            イベント名<br>
-            イベントを入力してね！
-          </h5>
-           <p class="card-text">説明を入力してね！</p>
-        </div>
-            <ul class="list-group list-group-flush">
+      <% if @events.empty? %>
+        <li class="card" style="width: 18rem; margin: 10px; display: inline-block;">
+          <div class='item-img-content'>
+            <%= image_tag "https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-4/sample.jpg", class: "item-img", style: "width: 286px;" %>
+          </div>
+          <div class='item-info card-body'>
+            <h5 class='card-title'>
+              イベント名<br>
+              イベントを入力してね！
+            </h5>
+            <p class="card-text">説明を入力してね！</p>
+          </div>
+          <ul class="list-group list-group-flush">
             <li class="list-group-item">日付<br>
               日付を入力してね！
             </li>
@@ -108,13 +107,15 @@
               場所を入力してね！
             </li>
           </ul>
-          <%= link_to '#', class: "btn", style: "background-color: #FFC6E3;" do %>
+          <%= link_to '#', class: "btn", style: "background-color: #FFC6E3; width:100%;" do %>
             イベント詳細
           <% end %>
-      </li>
+        </li>
       <% end %>
-       </ul>
+    </ul>
   </div>
+</div>
+
      <%# 追加内容 %>
      <div class='feature-contents'>
      <h2 class='title'>
@@ -163,13 +164,14 @@
   
   <%# 育児日記一覧 %>
 
-    <div class="container marketing" style="background-color: white;">
-    <h2 class="title" style="font-size: 40px; font-weight: bold; text-align: center; margin: 50px 0px 20px 0px;">育児日記一覧</h2>
+    <div class="container marketing" style="background-color: white; padding-top:50px;">
+    <h2 class="title" style="font-size: 40px; font-weight: bold; text-align: center;">育児日記一覧</h2>
     <div class="subtitle" style="font-size:25px; font-weight: bold ; text-align: center ; color:#FFC6E3; margin-bottom:20px;"  >
       思い出
     </div>
     <!-- Three columns of text below the carousel -->
-    <div class="row" style="justify-content: center;">
+    <div class="test" style="overflow-x: auto;">
+    <div class="rows" style="inline-block;">
       <% @childcares.each do |childcare| %>
       <div class="col-lg-4">
         <%= image_tag childcare.image, class: "bd-placeholder-img rounded-circle", width: "140", height: "140" %>
@@ -182,7 +184,7 @@
       <%end%>
     </div><!-- /.row -->
 
-    <div class="row" style="justify-content: center;">
+    <div class="rows" style="inline-block;" >
       <div class="col-lg-4">
       <% if @childcares.empty?%>
         <%= image_tag "https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-4/sample.jpg", class: "bd-placeholder-img rounded-circle", width: "140", height: "140" %>
@@ -191,6 +193,7 @@
         <p><a class="btn btn-secondary" href="#">View details &raquo;</a></p>
       </div><!-- /.col-lg-4 -->
       <%end%>
+    </div>
     </div>
    </div>  
   

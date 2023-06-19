@@ -12,9 +12,9 @@
     </div>
     <% if user_signed_in? %> 
       <% if current_user.id == @event.user_id%> 
-      <%= link_to "商品の編集", edit_event_path(@event.id), method: :get, class: "item-red-btn", style: "text-decoration: none; border-radius: 30px;" %>
+      <%= link_to "商品の編集", edit_event_path(@event.id), method: :get, class: "item-red-btn", style: "text-decoration: none; border-radius: 30px; color:white;" %>
       <p class="or-text">or</p>
-      <%= link_to "削除", event_path(@event.id), method: :delete, class: "item-destroy", style: "text-decoration: none; border-radius: 30px;" %>
+      <%= link_to "削除", event_path(@event.id), method: :delete, class: "item-destroy", style: "text-decoration: none; border-radius: 30px; color:black;" %>
       <% end %>
     <% end %>
     
@@ -38,7 +38,7 @@
         <tr>
           <th class="detail-item">日付</th>
           <td class="detail-value">
-          <%= @event.datetime%>
+          <%= @event.datetime.strftime("%Y年%m月%d日 %A") %>
           </td>
         </tr>
         <tr>
@@ -97,10 +97,10 @@
   <%# /商品の概要 %>
 
   <div class="links">
-    <a href="#" class="change-item-btn">
+    <a href="#" class="change-item-btn" style="color:#FEC0CA;">
       ＜ 前の商品
     </a>
-    <a href="#" class="change-item-btn">
+    <a href="#" class="change-item-btn" style="color:#FEC0CA;">
       後ろの商品 ＞
     </a>
   </div>
