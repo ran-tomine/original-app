@@ -55,24 +55,24 @@
 
      <%# 追加内容 %>
     <div class='item-contents'>
-    <h2 class='title'>イベント一覧</h2>
-    <div class="subtitle" >
-      イベント場所と詳細
-    </div>
-    <ul class='item-lists'>
-
-     <% @events.each do |event| %>
-      <li class="card" style="width: 18rem; margin: 10px;">
-      <div class='item-img-content'>
-        <%= image_tag event.image.variant(resize:'500x500'), class: "item-img card-img-top" if event.image.attached? %>
-      </div>
-        <div class='item-info card-body'>
-          <h5 class='card-title'>
-            イベント名<br>
-            <%= event.name %>
-          </h5>
-          <p class="card-text"><%= event.description%></p>
-        </div>
+  <h2 class='title'>イベント一覧</h2>
+  <div class="subtitle">
+    イベント場所と詳細
+  </div>
+  <div style="overflow-x: auto; white-space: nowrap;">
+    <ul class='item-lists' style="display: inline-block;">
+      <% @events.each do |event| %>
+        <li class="card" style="width: 18rem; margin: 10px; display: inline-block;">
+          <div class='item-img-content'>
+            <%= image_tag event.image.variant(resize:'500x500'), class: "item-img card-img-top" if event.image.attached? %>
+          </div>
+          <div class='item-info card-body'>
+            <h5 class='card-title'>
+              イベント名<br>
+              <%= event.name %>
+            </h5>
+            <p class="card-text"><%= event.description%></p>
+          </div>
           <ul class="list-group list-group-flush">
             <li class="list-group-item">日付<br>
               <%= event.datetime %>
@@ -81,26 +81,25 @@
               <%= event.location %>
             </li>
           </ul>
-          <%= link_to event_path(event.id), class: "btn", style: "background-color: #FFC6E3;", onmouseover: "this.style.backgroundColor='#FEC0CA';", onmouseout: "this.style.backgroundColor='#FFC6E3';" do %>
+          <%= link_to event_path(event.id), class: "btn", style: "background-color: #FFC6E3; width: 100%;", onmouseover: "this.style.backgroundColor='#FEC0CA';", onmouseout: "this.style.backgroundColor='#FFC6E3';" do %>
             イベント詳細
           <% end %>
-      </li>
-    <% end %>
+        </li>
+      <% end %>
 
-
-      <% if @events.empty?%>
-      <li class="card" style="width: 18rem; margin: 10px;">
-      <div class='item-img-content'>
-        <%= image_tag "https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-4/sample.jpg", class: "item-img", style: "width: 286px;" %>
-      </div>
-        <div class='item-info card-body'>
-          <h5 class='card-title'>
-            イベント名<br>
-            イベントを入力してね！
-          </h5>
-           <p class="card-text">説明を入力してね！</p>
-        </div>
-            <ul class="list-group list-group-flush">
+      <% if @events.empty? %>
+        <li class="card" style="width: 18rem; margin: 10px; display: inline-block;">
+          <div class='item-img-content'>
+            <%= image_tag "https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-4/sample.jpg", class: "item-img", style: "width: 286px;" %>
+          </div>
+          <div class='item-info card-body'>
+            <h5 class='card-title'>
+              イベント名<br>
+              イベントを入力してね！
+            </h5>
+            <p class="card-text">説明を入力してね！</p>
+          </div>
+          <ul class="list-group list-group-flush">
             <li class="list-group-item">日付<br>
               日付を入力してね！
             </li>
@@ -111,10 +110,12 @@
           <%= link_to '#', class: "btn", style: "background-color: #FFC6E3;" do %>
             イベント詳細
           <% end %>
-      </li>
+        </li>
       <% end %>
-       </ul>
+    </ul>
   </div>
+</div>
+
      <%# 追加内容 %>
      <div class='feature-contents'>
      <h2 class='title'>
