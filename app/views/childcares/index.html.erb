@@ -107,7 +107,7 @@
               場所を入力してね！
             </li>
           </ul>
-          <%= link_to '#', class: "btn", style: "background-color: #FFC6E3;" do %>
+          <%= link_to '#', class: "btn", style: "background-color: #FFC6E3; width:100%;" do %>
             イベント詳細
           <% end %>
         </li>
@@ -170,7 +170,8 @@
       思い出
     </div>
     <!-- Three columns of text below the carousel -->
-    <div class="row" style="justify-content: center;">
+    <div class="test" style="overflow-x: auto;">
+    <div class="rows" style="inline-block;">
       <% @childcares.each do |childcare| %>
       <div class="col-lg-4">
         <%= image_tag childcare.image, class: "bd-placeholder-img rounded-circle", width: "140", height: "140" %>
@@ -183,7 +184,7 @@
       <%end%>
     </div><!-- /.row -->
 
-    <div class="row" style="justify-content: center;">
+    <div class="rows" style="inline-block;" >
       <div class="col-lg-4">
       <% if @childcares.empty?%>
         <%= image_tag "https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-4/sample.jpg", class: "bd-placeholder-img rounded-circle", width: "140", height: "140" %>
@@ -192,6 +193,7 @@
         <p><a class="btn btn-secondary" href="#">View details &raquo;</a></p>
       </div><!-- /.col-lg-4 -->
       <%end%>
+    </div>
     </div>
    </div>  
   
