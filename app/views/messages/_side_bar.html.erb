@@ -1,9 +1,9 @@
 <div class="side-bar-header">
   <div class="header-name">
-    <%= link_to current_user.nickname, user_path(current_user),style: "color:black;" %>
+    <%= link_to current_user.nickname, user_path(current_user), style: "color: black;" %>
   </div>
   <div class="create-room">
-    <%= link_to "チャットを作成する", new_room_path,style:"color:black;",onmouseover: "this.style.backgroundColor='#FEC0CA';", onmouseout: "this.style.backgroundColor='#FFC6E3';"  %>
+    <%= link_to "チャットを作成する", new_room_path, style: "color: black;", onmouseover: "this.style.backgroundColor='#FEC0CA';", onmouseout: "this.style.backgroundColor='#FFC6E3';" %>
   </div>
 </div>
 
@@ -11,7 +11,14 @@
   <% current_user.rooms.each do |room| %>
     <div class="room">
       <div class="room-name">
-        <%= link_to room.name, room_messages_path(room), style: "color: black;"%>
+        <% other_user = room.users.find { |user| user != current_user } %>
+        <% if other_user %>
+          <% if other_user.nickname != current_user.nickname %>
+            <%= link_to other_user.nickname, room_messages_path(room), style: "color: black;" %>
+          <% else %>
+            <%= link_to current_user.nickname, room_messages_path(room), style: "color: black;" %>
+          <% end %>
+        <% end %>
       </div>
     </div>
   <% end %>
