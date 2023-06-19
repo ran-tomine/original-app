@@ -29,9 +29,9 @@
     <%# ログインしているユーザーと出品しているユーザーが、同一人物の場合と同一人物ではない場合で、処理を分けましょう %>
     <% if user_signed_in? %> 
       <% if current_user.id == @childcare.user_id %>
-     <%= link_to "内容の編集", edit_childcare_path(@childcare.id), method: :get, class: "item-red-btn", style: "border-radius: 30px; text-decoration: none;" %>
+     <%= link_to "内容の編集", edit_childcare_path(@childcare.id), method: :get, class: "item-red-btn", style: "border-radius: 30px; text-decoration: none; color:white;" %>
       <p class="or-text">or</p>
-      <%= link_to "削除", childcare_path(@childcare.id), method: :delete, class: "item-destroy", style: "border-radius: 30px; text-decoration: none;" %>
+      <%= link_to "削除", childcare_path(@childcare.id), method: :delete, class: "item-destroy", style: "border-radius: 30px; text-decoration: none; color:black;" %>
       <%end%>
     <% end %>
 
@@ -92,7 +92,7 @@
     <a href="#" class="change-item-btn">
       ＜ 前の投稿
     </a>
-    <a href="#" class="change-item-btn">
+    <a href="#" class="change-item-btn" style="color:#FEC0CA;">
       後ろの投稿 ＞
     </a>
   </div>

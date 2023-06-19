@@ -81,7 +81,7 @@
               <%= event.location %>
             </li>
           </ul>
-          <%= link_to event_path(event.id), class: "btn", style: "background-color: #FFC6E3;" do %>
+          <%= link_to event_path(event.id), class: "btn", style: "background-color: #FFC6E3;", onmouseover: "this.style.backgroundColor='#FEC0CA';", onmouseout: "this.style.backgroundColor='#FFC6E3';" do %>
             イベント詳細
           <% end %>
       </li>
