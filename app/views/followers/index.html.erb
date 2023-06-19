@@ -4,7 +4,7 @@
  <ul class="list-group">
   <h1 class="items-sell-title">フォローバックしていないアカウント</h1>
   <li class="list-group-item" style="background-color:#FFC6E3;">ユーザ一覧</li>
-  <% unfollowed_followers = User.where.not(id: @user.followers.pluck(:id)).where.not(id: @user.id).order("RAND()").limit(5).to_a %>
+  <% unfollowed_followers = User.where.not(id: @user.followers.pluck(:id)).where.not(id: @user.id).order("RANDOM()").limit(5).to_a %>
   <% unfollowed_followers.shuffle.each do |user| %>
   <li class="list-group-item"><%= link_to user.nickname, user_path(user), style: "text-decoration: none; color: black;" %></li>
   <% end %>
