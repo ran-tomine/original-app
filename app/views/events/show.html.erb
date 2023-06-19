@@ -38,7 +38,7 @@
         <tr>
           <th class="detail-item">日付</th>
           <td class="detail-value">
-          <%= @event.datetime%>
+          <%= @event.datetime.strftime("%Y年%m月%d日 %A") %>
           </td>
         </tr>
         <tr>
