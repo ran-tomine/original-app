@@ -1,5 +1,5 @@
 class ChildcaresController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :destroy]
+  before_action :authenticate_user!, only: [:new, :destroy, :search]
   
   def index
     @childcares = Childcare.all
@@ -48,7 +48,11 @@ class ChildcaresController < ApplicationController
     redirect_to root_path
   end
 
-
+  def search
+    @childcares = Childcare.search(params[:keyword])
+    @events = Event.search(params[:keyword])
+    
+  end
 
   private
 

@@ -14,4 +14,12 @@ class Event < ApplicationRecord
   geocoded_by :address
   after_validation :geocode, if: :address_changed?
 
+  def self.search(search)
+    if search != ""
+      Event.where('name LIKE(?)', "%#{search}%")
+    else
+      Event.all
+    end
+  end
+
 end
