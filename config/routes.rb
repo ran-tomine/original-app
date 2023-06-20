@@ -5,6 +5,9 @@ Rails.application.routes.draw do
   resources :childcares do
     resources :childcare_comments, only: :create
     resource :likes, only: [:create, :destroy] 
+    collection do
+      get 'search'
+    end
   end
 
   resources :users do
