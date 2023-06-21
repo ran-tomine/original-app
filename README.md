@@ -9,8 +9,8 @@ https://originalapp.onrender.com
 
 # テスト用アカウント
 ## Basic認証
- - ID　tomine
- - Pass　2222　　
+ - ID  tomine
+ - Pass  2222
 ## 投稿者１のメールアドレスとパスワード
  - メールアドレス：test@aaa.com
  - パスワード：aaaaaa
