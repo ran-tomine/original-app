@@ -66,10 +66,10 @@ https://docs.google.com/spreadsheets/d/1vn9CRpXnnsb4lajIkhbxc1_xFK2ngX5TRnXV14yc
 現在チャットの画像投稿の非同期化を実装中
 
 # データベース設計
-https://gyazo.com/6fdf0a9b64ab409e0df2f4088c20e4d4
+https://gyazo.com/f8670dfb7344b39714b15e2a6957d8c1
 
 # 画面遷移図
-https://gyazo.com/b9682b94ce20a3b4e2e36e0ca691a907
+https://gyazo.com/8abf40ff26b3af51b26db6ddfd9b8f4b
 
 # 開発環境
 ・フロントエンド
