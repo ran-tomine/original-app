@@ -43,12 +43,22 @@
     </div>
     <%= f.password_field :password_confirmation, class:"input-default", placeholder:"同じパスワードを入力して下さい" %>
   </div>
+
   
   <div class='register-btn'>
     <%= f.submit "会員登録" ,class:"register-red-btn" %>
   </div>
-  
+  <% end %>
 </div>
-<% end %>
+<footer class="items-sell-footer">
+    <ul class="menu">
+      <li><a href="#">プライバシーポリシー</a></li>
+      <li><a href="#">ママナビ利用規約</a></li>
+      <li><a href="#">特定商取引に関する表記</a></li>
+    </ul>
+    <%= link_to image_tag('mamanavi2.png', size: '150x150'), "/" %>
+    <p class="inc">
+      ;©︎&MaMaNaVi,Inc.
+    </p>
+</footer>
 
-<%# render "shared/second-footer"%>

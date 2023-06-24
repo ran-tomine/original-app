@@ -1,0 +1,70 @@
+import consumer from "./consumer";
+
+if (location.pathname.match(/\/rooms\/\d/)) {
+  consumer.subscriptions.create(
+    {
+      channel: "MessageChannel",
+      room_id: location.pathname.match(/\d+/)[0],
+    },
+    {
+      connected() {
+        // Called when the subscription is ready for use on the server
+      },
+      disconnected() {
+        // Called when the subscription has been terminated by the server
+      },
+      received(data) {
+        console.log(data);
+        const imageUrl = {image: {record: data.image.url}}
+        const image = imageUrl ? `<img src="${imageUrl}" alt="message image">` : "";
+        const messageData = {
+          user: { nickname: data.user.nickname },
+          message: {
+            created_at: data.message.created_at,
+            content: data.message.content,
+            image: { attached: data.image && data.image.attached, url: imageUrl },
+          },
+        };
+        appendMessage(messageData, image);
+      },
+    }
+  );
+}
+
+// メッセージを追加する関数
+function appendMessage(data, image) {
+  const html = `
+    <div class="message">
+      <div class="upper-message">
+        <div class="message-user">
+          ${data.user.nickname}
+        </div>
+        <div class="message-date">
+          ${new Date(data.message.created_at).toLocaleString("ja-JP", {
+            hour12: false,
+          })}
+        </div>
+      </div>
+      <div class="lower-message">
+        <div class="message-content">
+          ${data.message.content}
+        </div>
+        ${image}
+      </div>
+    </div>
+  `;
+  const messages = document.getElementById("messages");
+  messages.insertAdjacentHTML("beforeend", html);
+  const commentForm = document.getElementById("message-form");
+  commentForm.reset();
+
+  setTimeout(() => {
+    const submitButton = commentForm.querySelector("input[type='submit']");
+    submitButton.disabled = false;
+  }, 500);
+}
+
+
+if @message.save
+      MessageChannel.broadcast_to @room, { message: @message, user: @message.user, image: @message.image }
+    else
