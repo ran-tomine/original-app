@@ -1,4 +1,4 @@
-<div class="chat-header">
+<div class="chat-header" style="height:100px;">
   <div class="left-header">
     <div class="header-title">
       <% other_user = @room.users.find { |user| user != current_user } %>
@@ -14,8 +14,21 @@
 
 
 <div class="messages" id="messages">
-  <%= render partial: 'message', collection: @messages %>
+  <%= render partial: 'message', collection: @messages.reverse_order %>
 </div>  
+
+<script>
+  // ページ読み込み時に一番新しい投稿までスクロールする関数
+  function scrollToLatestMessage() {
+    var messagesDiv = document.getElementById('messages');
+    messagesDiv.scrollTop = messagesDiv.scrollHeight;
+  }
+
+  // ページ読み込み完了時と新しい投稿が追加された時に自動的にスクロールする
+  window.addEventListener('DOMContentLoaded', scrollToLatestMessage);
+  document.addEventListener('turbo:load', scrollToLatestMessage);
+</script>
+
 
   <%= form_with model: [@room, @message], class: 'form', local: true, id: 'message-form' do |f| %>
   <div class="form-input">
@@ -27,3 +40,4 @@
   </div>
   <%= f.submit '送信', class: 'form-submit' %>
 <% end %>
+
