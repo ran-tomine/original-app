@@ -8,13 +8,19 @@ class MessagesController < ApplicationController
   def create
     @room = Room.find(params[:room_id])
     @message = @room.messages.new(message_params)
+    
     if @message.save
-      MessageChannel.broadcast_to @room, { message: @message, user: @message.user } #追加
+      image_url = url_for(@message.image) if @message.image.attached?
+      MessageChannel.broadcast_to @room, { message: @message, user: @message.user, image: image_url } # image_urlを追加
     else
       @messages = @room.messages.includes(:user)
       render :index
     end
+    
+    
+    puts url_for(@message.image) if @message.image.attached?  # 追加する行
   end
+  
 
   private
 
