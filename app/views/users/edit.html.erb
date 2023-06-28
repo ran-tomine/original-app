@@ -1,0 +1,63 @@
+<%= render "shared/second-header"%>
+
+
+<%= form_with model: @user, url: user_path(@user.id), class: 'registration-main', local: true do |f| %>
+
+<div class='form-wrap'>
+  <div class='form-header'>
+    <h1 class='form-header-text'>
+      会員情報入力
+    </h1>
+  </div>
+
+  <%# インスタンスを渡して、エラー発生時にメッセージが表示されるようにしましょう。%>
+  <%= render 'shared/error_messages', model: f.object %>
+  <%# //インスタンスを渡して、エラー発生時にメッセージが表示されるようにしましょう。%>
+
+  <%# 追加 %>
+  <div class="img-upload">
+      <div class="weight-bold-text">
+        画像
+        <span class="indispensable">必須</span>
+      </div>
+      <div class="click-upload">
+        <p>
+          クリックしてファイルをアップロード
+        </p>
+        <%= f.file_field :image, id:"item-image" %>
+      </div>
+    </div>
+    <%# 追加 %>
+  <div class="form-group">
+    <div class='form-text-wrap'>
+      <label class="form-text">ニックネーム</label>
+      <span class="indispensable">必須</span>
+    </div>
+    <%= f.text_area :nickname, class:"input-default", placeholder:"例) furima太郎", maxlength:"40" %>
+  </div>
+  <div class="form-group">
+    <div class='form-text-wrap'>
+      <label class="form-text">プロフィール</label>
+      <span class="indispensable">必須</span>
+    </div>
+    <%= f.text_area :profile, class:"input-default", placeholder:"例) 一言", maxlength:"40" %>
+  </div>
+
+  
+  <div class='register-btn'>
+    <%= f.submit "アカウント登録" ,class:"register-red-btn" %>
+  </div>
+  <% end %>
+</div>
+<footer class="items-sell-footer">
+    <ul class="menu">
+      <li><a href="#">プライバシーポリシー</a></li>
+      <li><a href="#">ママナビ利用規約</a></li>
+      <li><a href="#">特定商取引に関する表記</a></li>
+    </ul>
+    <%= link_to image_tag('mamanavi2.png', size: '150x150'), "/" %>
+    <p class="inc">
+      ;©︎&MaMaNaVi,Inc.
+    </p>
+</footer>
+
