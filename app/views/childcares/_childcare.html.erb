@@ -2,7 +2,7 @@
 
 <div class="card mb-3">
   <%= link_to(childcare_path(childcare.id)) do %>
-  <%= image_tag(childcare.image, class: "card__img", size: "322x201", style: "object-fit: cover; ") %>
+  <%= image_tag(childcare.image.variant(resize: '400x400'), class: "card__img", style: "object-fit: cover;") %>
   <% end %>
   <div class="card-body">
     <h5 class="card-title"><%= link_to childcare.title, childcare_path(childcare.id), class: "card__title", style: "text-decoration: none; color: black;" %></h5>

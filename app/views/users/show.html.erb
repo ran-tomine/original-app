@@ -6,6 +6,9 @@
         <h2 class="page-heading" style="margin-top:20px;">
           <%= @user.nickname %>さんの情報
         </h2>
+         <div class="col-lg-4">
+        <%= image_tag @user.image, class: "bd-placeholder-img rounded-circle", width: "140", height: "140" %>
+        </div>
         <% if current_user != @user %>
           <% if @user.followed_by?(current_user) %>
             <%=link_to "フォロー中", user_relationships_path(@user.id),class: "btn" , method: :delete %>
@@ -31,16 +34,18 @@
             </tr>
             <tr>
               <th class="table__col1">プロフィール</th>
-              <td class="table__col2">プロフィール</td>
+              <td class="table__col2"><%= @user.profile%></td>
             </tr>
           </tbody>
         </table>
         <h2 class="page-heading">
           <%= @user.nickname%>さんの育児日記
         </h2>
+        
         <div class="user__card">
           <%= render partial: "childcares/childcare", collection: @user.childcares %>
         </div>
+      
       </div>
     </div>
   </div>
