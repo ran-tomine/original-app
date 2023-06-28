@@ -1,4 +1,19 @@
 ja:
+  activerecord:
+    attributes:
+      user:
+        nickname: ニックネーム
+        profile: プロフィール
+      childcare:
+        image: 画像
+        title: タイトル
+        diary: 思い出
+      event:
+        name: イベント名
+        location: 場所
+        datetime: 日付時間
+        description: 説明
+        image: 画像
   time:
     formats:
       default: "%Y/%m/%d %H:%M:%S"
