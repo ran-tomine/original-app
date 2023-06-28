@@ -69,3 +69,5 @@ gem 'pry-rails'
 
 gem 'dotenv-rails'
 gem 'geocoder'
+
+gem 'rails-i18n'

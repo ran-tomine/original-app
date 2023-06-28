@@ -14,8 +14,7 @@ if (location.pathname.match(/\/rooms\/\d/)) {
         // Called when the subscription has been terminated by the server
       },
       received(data) {
-        console.log(data);
-        console.log(data.image);
+        
         const messageData = {
           user: { nickname: data.user.nickname },
           message: {
