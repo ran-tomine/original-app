@@ -6,6 +6,13 @@
         <h2 class="page-heading" style="margin-top:20px;">
           <%= @user.nickname %>さんの情報
         </h2>
+         <div class="col-lg-4">
+        <% if @user.image.attached? %>
+    <%= image_tag @user.image, class: "bd-placeholder-img rounded-circle", width: "140", height: "140" %>
+  <% else %>
+    <%= image_tag "flag.png", class: "bd-placeholder-img rounded-circle", width: "140", height: "140" %>
+  <% end %>
+        </div>
         <% if current_user != @user %>
           <% if @user.followed_by?(current_user) %>
             <%=link_to "フォロー中", user_relationships_path(@user.id),class: "btn" , method: :delete %>
@@ -22,7 +29,12 @@
          <%= link_to user_followers_path(@user), style: "text-decoration: none; color: black; display: inline-block;" do %>
          <h3>フォロワー (<%= @user.followers.count %>人)</h3>
          <% end %>
-        
+         <%= link_to edit_user_path, class: "btn btn-secondary", style: "margin-bottom: 5px;" do %>
+          アカウント編集
+        <% end %>
+
+
+         <%= link_to "アカウント削除", user_path(@user), method: :delete, data: { confirm: "本当にアカウントを削除しますか？" }, class: "btn btn-danger", style: "margin-bottom: 5px;" %>
          <table class="table" style="margin-bottom:30px;">
           <tbody>
             <tr>
@@ -31,16 +43,18 @@
             </tr>
             <tr>
               <th class="table__col1">プロフィール</th>
-              <td class="table__col2">プロフィール</td>
+              <td class="table__col2"><%= @user.profile%></td>
             </tr>
           </tbody>
         </table>
         <h2 class="page-heading">
           <%= @user.nickname%>さんの育児日記
         </h2>
+        
         <div class="user__card">
           <%= render partial: "childcares/childcare", collection: @user.childcares %>
         </div>
+      
       </div>
     </div>
   </div>

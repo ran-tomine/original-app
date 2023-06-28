@@ -5,7 +5,10 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   validates :nickname, presence: true
+  validates :profile,  presence: true
+         
 
+  has_one_attached :image
   has_many :childcares
   has_many :childcare_comments
   has_many :events
