@@ -24,6 +24,10 @@ ja:
         content: 文字
         event: イベント
         user: ユーザー
+      childcare_comment:
+        content: 文字
+        childcare: 育児日記
+        user: ユーザー
   time:
     formats:
       default: "%Y/%m/%d %H:%M:%S"
