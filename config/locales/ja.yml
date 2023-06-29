@@ -16,6 +16,10 @@ ja:
         image: 画像
       room:
         name: ルーム名
+      message:
+        content: 文字
+        room: ルーム
+        user: ユーザー
   time:
     formats:
       default: "%Y/%m/%d %H:%M:%S"
