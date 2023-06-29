@@ -17,7 +17,7 @@ RSpec.describe Like, type: :model do
         @like.valid?
         expect(@like.errors.full_messages).to include('ユーザーを入力してください')
       end
-      it 'ユーザが紐付いていないと保存できない' do
+      it '育児日記が紐付いていないと保存できない' do
         @like.childcare = nil
         @like.valid?
         expect(@like.errors.full_messages).to include('育児日記を入力してください')

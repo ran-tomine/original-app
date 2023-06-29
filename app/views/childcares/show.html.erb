@@ -12,7 +12,7 @@
     <div class="tweet">
       <% if user_signed_in? %>
       <div class="tweet-name" style="font-size: 20px; text-align: center;">
-        <%= link_to "投稿者：#{current_user.nickname}", user_path(current_user), style: "text-decoration: none; color: black;" %>
+        <%= link_to "投稿者：#{@childcare.user.nickname}", user_path(@childcare.user), style: "text-decoration: none; color: black;" %>
       </div>
       <% end %>
     <div id="like-btn<%= @childcare.id %>">
