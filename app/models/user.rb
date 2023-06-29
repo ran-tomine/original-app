@@ -4,9 +4,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  validates :nickname, presence: true
-  validates :profile,  presence: true
-         
+  validates :nickname, presence: true, length: { maximum: 6 }
+  validates :profile,  presence: true, length: { maximum: 1000}
+  validates :image, presence: true, allow_blank: true
 
   has_one_attached :image
   has_many :childcares
