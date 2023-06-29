@@ -1,8 +1,8 @@
 class Childcare < ApplicationRecord
 
   validates :image, presence: true
-  validates :title, presence: true
-  validates :diary, presence: true
+  validates :title, presence: true, length: { maximum: 30 }
+  validates :diary, presence: true, length: { maximum: 1000 }
 
   belongs_to :user
   has_one_attached :image
