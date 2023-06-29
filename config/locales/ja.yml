@@ -28,6 +28,9 @@ ja:
         content: 文字
         childcare: 育児日記
         user: ユーザー
+      like:
+        user: ユーザー
+        childcare: 育児日記
   time:
     formats:
       default: "%Y/%m/%d %H:%M:%S"
