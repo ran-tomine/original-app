@@ -15,9 +15,9 @@
         </div>
         <% if current_user != @user %>
           <% if @user.followed_by?(current_user) %>
-            <%=link_to "フォロー中", user_relationships_path(@user.id),class: "btn" , method: :delete %>
+            <%=link_to "フォロー中", user_relationships_path(@user.id),class: "btn btn-info" , method: :delete %>
           <% else %>
-            <%=link_to "フォローする", user_relationships_path(@user.id),class: "btn" ,method: :post %>
+            <%=link_to "フォローする", user_relationships_path(@user.id),class: "btn btn-info" ,method: :post %>
           <% end %>
          <% end %>
 

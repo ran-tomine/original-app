@@ -31,6 +31,9 @@ ja:
       like:
         user: ユーザー
         childcare: 育児日記
+      relationship:
+        follower: フォロワー
+        following: フォロー
   time:
     formats:
       default: "%Y/%m/%d %H:%M:%S"
