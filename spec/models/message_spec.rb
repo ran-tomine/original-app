@@ -26,12 +26,12 @@ RSpec.describe Message, type: :model do
         @message.valid?
         expect(@message.errors.full_messages).to include("文字を入力してください")
       end
-      it 'roomが紐付いていないと保存できない' do
+      it 'ルームが紐付いていないと保存できない' do
         @message.room = nil
         @message.valid?
         expect(@message.errors.full_messages).to include('ルームを入力してください')
       end
-      it 'userが紐付いていないと保存できない' do
+      it 'ユーザーが紐付いていないと保存できない' do
         @message.user = nil
         @message.valid?
         expect(@message.errors.full_messages).to include('ユーザーを入力してください')

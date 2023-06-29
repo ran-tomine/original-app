@@ -20,6 +20,10 @@ ja:
         content: 文字
         room: ルーム
         user: ユーザー
+      event_comment:
+        content: 文字
+        event: イベント
+        user: ユーザー
   time:
     formats:
       default: "%Y/%m/%d %H:%M:%S"
