@@ -8,10 +8,10 @@
         </h2>
          <div class="col-lg-4">
         <% if @user.image.attached? %>
-    <%= image_tag @user.image, class: "bd-placeholder-img rounded-circle", width: "140", height: "140" %>
-  <% else %>
-    <%= image_tag "flag.png", class: "bd-placeholder-img rounded-circle", width: "140", height: "140" %>
-  <% end %>
+          <%= image_tag @user.image, class: "bd-placeholder-img rounded-circle", width: "140", height: "140" %>
+        <% else %>
+          <%= image_tag "flag.png", class: "bd-placeholder-img rounded-circle", width: "140", height: "140" %>
+        <% end %>
         </div>
         <% if current_user != @user %>
           <% if @user.followed_by?(current_user) %>
@@ -29,12 +29,16 @@
          <%= link_to user_followers_path(@user), style: "text-decoration: none; color: black; display: inline-block;" do %>
          <h3>フォロワー (<%= @user.followers.count %>人)</h3>
          <% end %>
-         <%= link_to edit_user_path, class: "btn btn-secondary", style: "margin-bottom: 5px;" do %>
-          アカウント編集
-        <% end %>
 
 
-         <%= link_to "アカウント削除", user_path(@user), method: :delete, data: { confirm: "本当にアカウントを削除しますか？" }, class: "btn btn-danger", style: "margin-bottom: 5px;" %>
+         <% if current_user == @user %>
+          <%= link_to edit_user_path, class: "btn btn-secondary", style: "margin-bottom: 5px;" do %>
+            アカウント編集
+          <% end %>
+
+          <%= link_to "アカウント削除", user_path(@user), method: :delete, data: { confirm: "本当にアカウントを削除しますか？" }, class: "btn btn-danger", style: "margin-bottom: 5px;" %>
+          <% end %>
+
          <table class="table" style="margin-bottom:30px;">
           <tbody>
             <tr>
