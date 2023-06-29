@@ -14,6 +14,8 @@ ja:
         datetime: 日付時間
         description: 説明
         image: 画像
+      room:
+        name: ルーム名
   time:
     formats:
       default: "%Y/%m/%d %H:%M:%S"
