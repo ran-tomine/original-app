@@ -43,6 +43,16 @@ RSpec.describe Event, type: :model do
         @event.valid?
         expect(@event.errors.full_messages).to include("日付時間を入力してください")
       end
+      it '西暦が4桁でないと保存できない' do
+        @event.datetime = DateTime.new(23, 7, 1, 12, 0, 0) # 2桁の西暦を設定
+        @event.valid?
+        expect(@event.errors.full_messages).to include('日付時間の西暦は4桁である必要があります。')
+      end
+      it '過去の日付の設定では保存できない' do
+        @event.datetime = DateTime.new(2000, 1, 1, 0, 0, 0) # 過去の日時を設定
+        @event.valid?
+        expect(@event.errors.full_messages).to include('日付時間は未来の日時を設定してください。')
+      end
       it "説明がないと保存できない" do
         @event.description = nil
         @event.valid?

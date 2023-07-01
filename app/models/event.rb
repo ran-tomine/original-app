@@ -5,7 +5,20 @@ class Event < ApplicationRecord
   validates :datetime,    presence: true
   validates :description, presence: true, length: { maximum: 1000 }
   validates :image,       presence: true
-  
+  validate :four_digit_year
+  validate :future_datetime
+
+  def four_digit_year
+    if datetime.present? && datetime.year.to_s.length != 4
+      errors.add(:datetime, "の西暦は4桁である必要があります。")
+    end
+  end
+
+  def future_datetime
+    if datetime.present? && datetime < Time.now
+      errors.add(:datetime, "は未来の日時を設定してください。")
+    end
+  end
 
   belongs_to :user
   has_one_attached :image
