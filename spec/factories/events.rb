@@ -2,7 +2,7 @@ FactoryBot.define do
   factory :event do
     name {Faker::Lorem.word}
     location {Faker::Lorem.word}
-    datetime { DateTime.now }
+    datetime { "2100-01-01 00:00:00" }
     description {Faker::Lorem.sentence}
     association :user
     
