@@ -58,9 +58,6 @@ https://originalapp.onrender.com
 
 https://docs.google.com/spreadsheets/d/1vn9CRpXnnsb4lajIkhbxc1_xFK2ngX5TRnXV14ycuC4/edit#gid=982722306
 
-# 実装した機能についての画像やGIFおよびその説明
-
-
 
 # 実装予定の機能
 現在チャットの画像投稿の非同期化を実装中
@@ -69,7 +66,7 @@ https://docs.google.com/spreadsheets/d/1vn9CRpXnnsb4lajIkhbxc1_xFK2ngX5TRnXV14yc
 https://gyazo.com/f8670dfb7344b39714b15e2a6957d8c1
 
 # 画面遷移図
-https://gyazo.com/8abf40ff26b3af51b26db6ddfd9b8f4b
+https://gyazo.com/8a309481ceb00946d8f0bad1e1ce5851
 
 # 開発環境
 ・フロントエンド
