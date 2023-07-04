@@ -15,18 +15,16 @@
   <%# //インスタンスを渡して、エラー発生時にメッセージが表示されるようにしましょう。%>
 
   <%# 追加 %>
-  <div class="img-upload" style=" justify-content: flex-end; ">
-      <div>
-      <div class="weight-bold-text">
+  <div class="weight-bold-text" style="padding-left:180px; padding-top:30px; color:#6C757D;" >
         画像
         <span class="indispensable">必須</span>
       </div>
-      <div class="click-upload">
+  <div class="img-upload" style=" justify-content: flex-end; ">
+      <div class="click-upload" style="padding-right:120px;">
         <p>
           クリックしてファイルをアップロード
         </p>
         <%= f.file_field :image, id:"item-image" %>
-      </div>
       </div>
     </div>
     <%# 追加 %>
