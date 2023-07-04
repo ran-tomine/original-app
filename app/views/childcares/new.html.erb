@@ -30,21 +30,21 @@
         タイトル
         <span class="indispensable">必須</span>
       </div>
-      <%= f.text_area :title, class:"items-text", id:"item-name", placeholder:"タイトル", maxlength:"40" %>
+      <%= f.text_area :title, class:"items-text form-control", id:"item-name", placeholder:"タイトル", maxlength:"40" %>
       <div class="items-explain">
         <div class="weight-bold-text">
           思い出
           <span class="indispensable">必須</span>
         </div>
-        <%= f.text_area :diary, class:"items-text", id:"item-info", placeholder:"育児日記" ,rows:"7" ,maxlength:"1000" %>
+        <%= f.text_area :diary, class:"items-text form-control", id:"item-info", placeholder:"育児日記" ,rows:"7" ,maxlength:"1000" %>
       </div>
     </div>
     <%# /商品名と商品説明 %>
 
     <%# 下部ボタン %>
     <div class="sell-btn-contents">
-      <%= f.submit "投稿する" ,class:"sell-btn", style:"border-radius: 30px;" %>
-      <%=link_to 'もどる', root_path, class:"back-btn", style:"border-radius: 30px; color:white;"%>
+      <%= f.submit "投稿する", class: "sell-btn", style: "border-radius: 30px;", onmouseover: "this.style.boxShadow='0 0 10px rgba(0, 0, 0, 0.5)';", onmouseout: "this.style.boxShadow='none';" %>
+      <%=link_to 'もどる', root_path, class:"back-btn", style:"border-radius: 30px; color:white;", onmouseover: "this.style.boxShadow='0 0 10px rgba(0, 0, 0, 0.5)';", onmouseout: "this.style.boxShadow='none';"%>
     </div>
     <%# /下部ボタン %>
   </div>
