@@ -8,6 +8,11 @@
   position: fixed;
   padding: 15px;
   z-index: 2;
+  transition: box-shadow 0.3s;
+}
+
+.purchase-btn:hover {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 2.0);
 }
 
 .purchase-btn-text {
@@ -33,6 +38,11 @@
   position: fixed;
   padding: 15px;
   z-index: 2;
+  transition: box-shadow 0.3s;
+}
+
+.purchase-btn-left:hover {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 2.0);
 }
 
 .purchase-btn-text-left {
