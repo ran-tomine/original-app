@@ -81,9 +81,10 @@
               <%= event.location %>
             </li>
           </ul>
-          <%= link_to event_path(event.id), class: "btn", style: "background-color: #FFC6E3; width: 100%;", onmouseover: "this.style.backgroundColor='#FEC0CA';", onmouseout: "this.style.backgroundColor='#FFC6E3';" do %>
-            イベント詳細
-          <% end %>
+          <%= link_to event_path(event.id), class: "btn", style: "background-color: #FFC6E3; width: 100%; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);", onmouseover: "this.style.boxShadow='0 0 20px rgba(255, 0, 128, 3.3)';", onmouseout: "this.style.boxShadow='0 2px 4px rgba(0, 0, 0, 0.2)';" do %>
+  イベント詳細
+<% end %>
+
         </li>
       <% end %>
 
