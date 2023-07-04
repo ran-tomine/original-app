@@ -38,7 +38,7 @@
         <tr>
           <th class="detail-item">日付</th>
           <td class="detail-value">
-          <%= @event.datetime.strftime("%Y年%m月%d日 %A") %>
+          <%= @event.datetime.strftime("%Y年%m月%d日 %A").gsub(/(Sunday|Monday|Tuesday|Wednesday|Thursday|Friday|Saturday)/, { "Sunday" => "日曜日", "Monday" => "月曜日", "Tuesday" => "火曜日", "Wednesday" => "水曜日", "Thursday" => "木曜日", "Friday" => "金曜日", "Saturday" => "土曜日" }) %>
           </td>
         </tr>
         <tr>

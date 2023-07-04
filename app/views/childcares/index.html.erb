@@ -75,15 +75,15 @@
           </div>
           <ul class="list-group list-group-flush">
             <li class="list-group-item">日付<br>
-              <%= event.datetime %>
+              <%= event.datetime.strftime("%Y年%m月%d日 %A").gsub(/(Sunday|Monday|Tuesday|Wednesday|Thursday|Friday|Saturday)/, { "Sunday" => "日曜日", "Monday" => "月曜日", "Tuesday" => "火曜日", "Wednesday" => "水曜日", "Thursday" => "木曜日", "Friday" => "金曜日", "Saturday" => "土曜日" }) %>
             </li>
             <li class="list-group-item">場所<br>
               <%= event.location %>
             </li>
           </ul>
           <%= link_to event_path(event.id), class: "btn", style: "background-color: #FFC6E3; width: 100%; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);", onmouseover: "this.style.boxShadow='0 0 20px rgba(255, 0, 128, 3.3)';", onmouseout: "this.style.boxShadow='0 2px 4px rgba(0, 0, 0, 0.2)';" do %>
-  イベント詳細
-<% end %>
+            イベント詳細  
+          <% end %>
 
         </li>
       <% end %>
