@@ -20,11 +20,11 @@
         <span class="indispensable">必須</span>
       </div>
   <div class="img-upload" style=" justify-content: flex-end; ">
-      <div class="click-upload" style="padding-right:120px;">
+      <div class="click-upload" style="padding-right:185px;">
         <p>
           クリックしてファイルをアップロード
         </p>
-        <%= f.file_field :image, id:"item-image" %>
+        <%= f.file_field :image, id:"item-image", class:"form-control" %>
       </div>
     </div>
     <%# 追加 %>
@@ -33,14 +33,14 @@
       <label class="form-text">メールアドレス</label>
       <span class="indispensable">必須</span>
     </div>
-    <%= f.email_field :email, class:"input-default",placeholder:"PC・携帯どちらでも可", autofocus: true %>
+    <%= f.email_field :email, class:"input-default form-control",placeholder:"PC・携帯どちらでも可", autofocus: true %>
   </div>
   <div class="form-group">
     <div class='form-text-wrap'>
       <label class="form-text">パスワード</label>
       <span class="indispensable">必須</span>
     </div>
-    <%= f.password_field :password, class:"input-default", placeholder:"6文字以上の半角英数字" %>
+    <%= f.password_field :password, class:"input-default form-control", placeholder:"6文字以上の半角英数字" %>
     <p class='info-text'>※英字と数字の両方を含めて設定してください</p>
   </div>
   <div class="form-group">
@@ -48,26 +48,26 @@
       <label class="form-text">パスワード(確認)</label>
       <span class="indispensable">必須</span>
     </div>
-    <%= f.password_field :password_confirmation, class:"input-default", placeholder:"同じパスワードを入力して下さい" %>
+    <%= f.password_field :password_confirmation, class:"input-default form-control", placeholder:"同じパスワードを入力して下さい" %>
   </div>
   <div class="form-group">
     <div class='form-text-wrap'>
       <label class="form-text">ニックネーム</label>
       <span class="indispensable">必須</span>
     </div>
-    <%= f.text_area :nickname, class:"input-default", placeholder:"例) mamanavi", maxlength:"40" %>
+    <%= f.text_area :nickname, class:"input-default form-control", placeholder:"例) mamanavi", maxlength:"40" %>
   </div>
   <div class="form-group">
     <div class='form-text-wrap'>
       <label class="form-text">プロフィール</label>
       <span class="indispensable">必須</span>
     </div>
-    <%= f.text_area :profile, class:"input-default", placeholder:"例) よろしくお願いします", maxlength:"40" %>
+    <%= f.text_area :profile, class:"input-default form-control", placeholder:"例) よろしくお願いします", maxlength:"40" %>
   </div>
 
   
   <div class='register-btn'>
-    <%= f.submit "会員登録" ,class:"register-red-btn" %>
+    <%= f.submit "会員登録", class: "register-red-btn", onmouseover: "this.style.boxShadow='0 0 10px rgba(0, 0, 0, 0.5)';", onmouseout: "this.style.boxShadow='none';" %>
   </div>
   <% end %>
 </div>
