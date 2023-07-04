@@ -75,15 +75,16 @@
           </div>
           <ul class="list-group list-group-flush">
             <li class="list-group-item">日付<br>
-              <%= event.datetime %>
+              <%= event.datetime.strftime("%Y年%m月%d日 %A").gsub(/(Sunday|Monday|Tuesday|Wednesday|Thursday|Friday|Saturday)/, { "Sunday" => "日曜日", "Monday" => "月曜日", "Tuesday" => "火曜日", "Wednesday" => "水曜日", "Thursday" => "木曜日", "Friday" => "金曜日", "Saturday" => "土曜日" }) %>
             </li>
             <li class="list-group-item">場所<br>
               <%= event.location %>
             </li>
           </ul>
-          <%= link_to event_path(event.id), class: "btn", style: "background-color: #FFC6E3; width: 100%;", onmouseover: "this.style.backgroundColor='#FEC0CA';", onmouseout: "this.style.backgroundColor='#FFC6E3';" do %>
-            イベント詳細
+          <%= link_to event_path(event.id), class: "btn", style: "background-color: #FFC6E3; width: 100%; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);", onmouseover: "this.style.boxShadow='0 0 20px rgba(255, 0, 128, 3.3)';", onmouseout: "this.style.boxShadow='0 2px 4px rgba(0, 0, 0, 0.2)';" do %>
+            イベント詳細  
           <% end %>
+
         </li>
       <% end %>
 
@@ -174,12 +175,13 @@
     <div class="rows" style="inline-block;">
       <% @childcares.each do |childcare| %>
       <div class="col-lg-4">
-        <%= image_tag childcare.image, class: "bd-placeholder-img rounded-circle", width: "140", height: "140" %>
+        <%= image_tag childcare.image, class: "bd-placeholder-img rounded-circle with-shadow-hover", width: "140", height: "140" %>
         <h2><%= childcare.title %></h2>
         <p><%= childcare.diary %></p>
-        <%= link_to childcare_path(childcare.id), class: "btn btn-secondary" do %>
+        <%= link_to childcare_path(childcare.id), class: "btn btn-secondary with-shadow-hover" do %>
           日記を読む &raquo;
-        <% end %>
+        <% end %> 
+
       </div><!-- /.col-lg-4 -->
       <%end%>
     </div><!-- /.row -->
