@@ -15,7 +15,8 @@
   <%# //インスタンスを渡して、エラー発生時にメッセージが表示されるようにしましょう。%>
 
   <%# 追加 %>
-  <div class="img-upload">
+  <div class="img-upload" style=" justify-content: flex-end; ">
+      <div>
       <div class="weight-bold-text">
         画像
         <span class="indispensable">必須</span>
@@ -25,6 +26,7 @@
           クリックしてファイルをアップロード
         </p>
         <%= f.file_field :image, id:"item-image" %>
+      </div>
       </div>
     </div>
     <%# 追加 %>
@@ -55,14 +57,14 @@
       <label class="form-text">ニックネーム</label>
       <span class="indispensable">必須</span>
     </div>
-    <%= f.text_area :nickname, class:"input-default", placeholder:"例) furima太郎", maxlength:"40" %>
+    <%= f.text_area :nickname, class:"input-default", placeholder:"例) mamanavi", maxlength:"40" %>
   </div>
   <div class="form-group">
     <div class='form-text-wrap'>
       <label class="form-text">プロフィール</label>
       <span class="indispensable">必須</span>
     </div>
-    <%= f.text_area :profile, class:"input-default", placeholder:"例) furima太郎", maxlength:"40" %>
+    <%= f.text_area :profile, class:"input-default", placeholder:"例) よろしくお願いします", maxlength:"40" %>
   </div>
 
   
