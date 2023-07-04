@@ -27,3 +27,20 @@
   text-align: right;
   text-decoration: underline;
 }
+
+.with-shadow-hover {
+  transition: box-shadow 0.5s;
+  margin-top:5px;
+}
+
+.with-shadow-hover:hover {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 3.3);
+}
+
+.with-shadow-hover {
+  transition: box-shadow 0.5s;
+}
+
+.with-shadow-hover:hover {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 1.0);
+}
