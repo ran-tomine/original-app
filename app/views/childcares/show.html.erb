@@ -12,7 +12,11 @@
     <div class="tweet">
       <% if user_signed_in? %>
       <div class="tweet-name" style="font-size: 20px; text-align: center;">
-        <%= link_to "投稿者：#{@childcare.user.nickname}", user_path(@childcare.user), style: "text-decoration: none; color: black;" %>
+        <%= link_to "投稿者：#{@childcare.user.nickname}",
+            user_path(@childcare.user), style: "text-decoration: none; color: black;",
+            class: "shadow-link",
+            onmouseover: "this.style.boxShadow='0px 0px 5px 2px rgba(0, 0, 0, 0.5)'",
+            onmouseout: "this.style.boxShadow='none'" %>
       </div>
       <% end %>
     <div id="like-btn<%= @childcare.id %>">
@@ -29,9 +33,9 @@
     <%# ログインしているユーザーと出品しているユーザーが、同一人物の場合と同一人物ではない場合で、処理を分けましょう %>
     <% if user_signed_in? %> 
       <% if current_user.id == @childcare.user_id %>
-     <%= link_to "内容の編集", edit_childcare_path(@childcare.id), method: :get, class: "item-red-btn", style: "border-radius: 30px; text-decoration: none; color:white;" %>
+     <%= link_to "内容の編集", edit_childcare_path(@childcare.id), method: :get, class: "item-red-btn", style: "border-radius: 30px; text-decoration: none; color:white;",onmouseover: "this.style.boxShadow='0px 0px 5px 2px rgba(0, 0, 0, 0.5)'",onmouseout: "this.style.boxShadow='none'" %>
       <p class="or-text">or</p>
-      <%= link_to "削除", childcare_path(@childcare.id), method: :delete, class: "item-destroy", style: "border-radius: 30px; text-decoration: none; color:black;" %>
+      <%= link_to "削除", childcare_path(@childcare.id), method: :delete, class: "item-destroy", style: "border-radius: 30px; text-decoration: none; color:white;",onmouseover: "this.style.boxShadow='0px 0px 5px 2px rgba(0, 0, 0, 0.5)'",onmouseout: "this.style.boxShadow='none'" %>
       <%end%>
     <% end %>
 
