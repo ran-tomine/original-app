@@ -12,9 +12,9 @@
     </div>
     <% if user_signed_in? %> 
       <% if current_user.id == @event.user_id%> 
-      <%= link_to "商品の編集", edit_event_path(@event.id), method: :get, class: "item-red-btn", style: "text-decoration: none; border-radius: 30px; color:white;" %>
+      <%= link_to "商品の編集", edit_event_path(@event.id), method: :get, class: "item-red-btn", style: "text-decoration: none; border-radius: 30px; color:white;",onmouseover: "this.style.boxShadow='0px 0px 5px 2px rgba(0, 0, 0, 0.5)'",onmouseout: "this.style.boxShadow='none'" %>
       <p class="or-text">or</p>
-      <%= link_to "削除", event_path(@event.id), method: :delete, class: "item-destroy", style: "text-decoration: none; border-radius: 30px; color:black;" %>
+      <%= link_to "削除", event_path(@event.id), method: :delete, class: "item-destroy", style: "text-decoration: none; border-radius: 30px; color:white;",onmouseover: "this.style.boxShadow='0px 0px 5px 2px rgba(0, 0, 0, 0.5)'",onmouseout: "this.style.boxShadow='none'" %>
       <% end %>
     <% end %>
     
