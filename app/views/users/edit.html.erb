@@ -6,7 +6,7 @@
 <div class='form-wrap'>
   <div class='form-header'>
     <h1 class='form-header-text'>
-      会員情報入力
+      会員情報編集
     </h1>
   </div>
 
@@ -15,16 +15,16 @@
   <%# //インスタンスを渡して、エラー発生時にメッセージが表示されるようにしましょう。%>
 
   <%# 追加 %>
-  <div class="img-upload">
-      <div class="weight-bold-text">
+  <div class="weight-bold-text" style="padding-left:180px; padding-top:30px; color:#6C757D;" >
         画像
         <span class="indispensable">必須</span>
       </div>
-      <div class="click-upload">
+  <div class="img-upload" style=" justify-content: flex-end; ">
+      <div class="click-upload" style="padding-right:185px;">
         <p>
           クリックしてファイルをアップロード
         </p>
-        <%= f.file_field :image, id:"item-image" %>
+        <%= f.file_field :image, id:"item-image", class:"form-control" %>
       </div>
     </div>
     <%# 追加 %>
@@ -33,19 +33,19 @@
       <label class="form-text">ニックネーム</label>
       <span class="indispensable">必須</span>
     </div>
-    <%= f.text_area :nickname, class:"input-default", placeholder:"例) furima太郎", maxlength:"40" %>
+    <%= f.text_area :nickname, class:"input-default form-control", placeholder:"例) furima太郎", maxlength:"40" %>
   </div>
   <div class="form-group">
     <div class='form-text-wrap'>
       <label class="form-text">プロフィール</label>
       <span class="indispensable">必須</span>
     </div>
-    <%= f.text_area :profile, class:"input-default", placeholder:"例) 一言", maxlength:"40" %>
+    <%= f.text_area :profile, class:"input-default form-control", placeholder:"例) 一言", maxlength:"40" %>
   </div>
 
   
   <div class='register-btn'>
-    <%= f.submit "アカウント登録" ,class:"register-red-btn" %>
+    <%= f.submit "アカウント登録" ,class:"register-red-btn", onmouseover: "this.style.boxShadow='0 0 10px rgba(0, 0, 0, 0.5)';", onmouseout: "this.style.boxShadow='none';" %>
   </div>
   <% end %>
 </div>
