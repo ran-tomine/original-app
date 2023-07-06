@@ -8,9 +8,9 @@
         </h2>
          <div class="col-lg-4">
         <% if @user.image.attached? %>
-          <%= image_tag @user.image, class: "bd-placeholder-img rounded-circle", width: "140", height: "140" %>
+          <%= image_tag @user.image, class: "bd-placeholder-img rounded-circle", width: "140", height: "140",onmouseover: "this.style.boxShadow='0px 0px 5px 2px rgba(0, 0, 0, 0.5)'",onmouseout: "this.style.boxShadow='none'" %>
         <% else %>
-          <%= image_tag "mother.png", class: "bd-placeholder-img rounded-circle", width: "140", height: "140" %>
+          <%= image_tag "mother.png", class: "bd-placeholder-img rounded-circle", width: "140", height: "140",onmouseover: "this.style.boxShadow='0px 0px 5px 2px rgba(0, 0, 0, 0.5)'",onmouseout: "this.style.boxShadow='none'" %>
         <% end %>
         </div>
         <% if current_user != @user %>
