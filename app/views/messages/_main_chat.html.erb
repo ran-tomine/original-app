@@ -7,7 +7,7 @@
   </div>
   <div class="right-header">
     <div class="header-button">
-      <%= link_to "チャットを終了する", room_path(@room), method: :delete, style: "border-radius: 30px; color:#6C757D;" %>
+      <%= link_to "チャットを終了する", room_path(@room), method: :delete, style: "border-radius: 30px; color:#6C757D;",onmouseover: "this.style.boxShadow='0px 0px 5px 2px rgba(0, 0, 0, 0.5)'",onmouseout: "this.style.boxShadow='none'" %>
     </div>
   </div>
 </div>
@@ -31,8 +31,8 @@
 
 
   <%= form_with model: [@room, @message], class: 'form', local: true, id: 'message-form' do |f| %>
-  <div class="form-input">
-    <%= f.text_field :content, class: 'form-message', placeholder: 'type a message' %>
+  <div class="form-input" style="border-radius:10px;">
+    <%= f.text_field :content, class: 'form-message', placeholder: 'message', style:"border-radius:10px;" %>
     <label class="form-image">
       <span class="image-file">画像</span>
       <%= f.file_field :image, class: 'hidden' %>
