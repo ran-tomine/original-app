@@ -1,9 +1,9 @@
 <div class="side-bar-header">
   <div class="header-name">
-    <%= link_to current_user.nickname, user_path(current_user), style: "color: black;" %>
+    <%= link_to current_user.nickname, user_path(current_user), style: "color: black; padding:10px; border-radius:20px;",onmouseover: "this.style.boxShadow='0px 0px 5px 2px rgba(0, 0, 0, 0.5)'",onmouseout: "this.style.boxShadow='none'" %>
   </div>
   <div class="create-room">
-    <%= link_to "チャットを作成する", new_room_path, style: "color: black;", onmouseover: "this.style.backgroundColor='#FEC0CA';", onmouseout: "this.style.backgroundColor='#FFC6E3';" %>
+    <%= link_to "チャットを作成する", new_room_path, style: "color: black;",onmouseover: "this.style.boxShadow='0px 0px 5px 2px rgba(0, 0, 0, 0.5)'",onmouseout: "this.style.boxShadow='none'"%>
   </div>
 </div>
 
@@ -14,9 +14,9 @@
         <% other_user = room.users.find { |user| user != current_user } %>
         <% if other_user %>
           <% if other_user.nickname != current_user.nickname %>
-            <%= link_to other_user.nickname, room_messages_path(room), style: "color: black;" %>
+            <%= link_to other_user.nickname, room_messages_path(room), style: "color: black; padding:20px; border-radius:10px;",onmouseover: "this.style.boxShadow='0px 0px 5px 2px rgba(0, 0, 0, 0.5)'",onmouseout: "this.style.boxShadow='none'"  %>
           <% else %>
-            <%= link_to current_user.nickname, room_messages_path(room), style: "color: black;" %>
+            <%= link_to current_user.nickname, room_messages_path(room), style: "color: black; padding:20px; border-radius:10px;",onmouseover: "this.style.boxShadow='0px 0px 5px 2px rgba(0, 0, 0, 0.5)'",onmouseout: "this.style.boxShadow='none'"  %>
           <% end %>
         <% end %>
       </div>
