@@ -26,7 +26,7 @@
     <%# 追加 %>
     <div class="item-img-content" style="margin-top: 20px;">
   <% if @childcare.image.attached? %>
-    <%= image_tag @childcare.image.variant(resize: '500x500'), class: "item-box-img", style: "border-radius: 50% !important;" %>
+    <%= image_tag @childcare.image.variant(resize: '500x500'), class: "item-box-img", style: "border-radius: 50% !important;", width: "600", height: "600" %>
   <% end %>
 </div>
 
