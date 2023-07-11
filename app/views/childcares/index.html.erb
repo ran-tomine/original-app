@@ -183,7 +183,7 @@
       <% @childcares.each do |childcare| %>
       <div class="col-lg-4">
         <%= image_tag childcare.image, class: "bd-placeholder-img rounded-circle with-shadow-hover", width: "140", height: "140" %>
-        <h2><%= childcare.title %></h2>
+        <h2 class="title1"><%= childcare.title %></h2>
         <p><%= childcare.diary %></p>
         <%= link_to childcare_path(childcare.id), class: "btn btn-secondary with-shadow-hover" do %>
           日記を読む &raquo;
