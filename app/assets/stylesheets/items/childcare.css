@@ -10,6 +10,7 @@
 
 .card__img {
   margin-bottom: 16px;
+  width:323px;
 }
 .card__title {
   display: block;
