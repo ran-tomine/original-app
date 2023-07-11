@@ -322,6 +322,20 @@ a {
   margin-left: calc(-.5 * var(--bs-gutter-x));
 }
 
+
+@media (max-width: 980px) {
+  .service-title{
+    font-size: 4vh;
+  }
+  .reason-list-text{
+    font-size: 18px;
+  }
+  .item-img {
+    height: 300px;
+  }
+}
+
+
 @media (max-width: 1024px) {
   .reason-list-text{
     font-size: 18px;
@@ -333,7 +347,6 @@ a {
     font-size:25px;
   }
   .rows{
-    
     --bs-gutter-y: 0;
     display: flex;
     margin-top: calc(-1 * var(--bs-gutter-y));
