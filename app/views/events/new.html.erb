@@ -13,11 +13,11 @@
 
     <%# 商品画像 %>
     <div class="img-upload">
-      <div class="weight-bold-text">
+      <div class="weight-bold-text1">
         画像
         <span class="indispensable">必須</span>
       </div>
-      <div class="click-upload">
+      <div class="click-upload1">
         <p>
           クリックしてファイルをアップロード
         </p>
@@ -27,25 +27,25 @@
     <%# /商品画像 %>
     <%# 商品名と商品説明 %>
     <div class="new-items">
-      <div class="weight-bold-text">
+      <div class="weight-bold-text1">
         イベント名
         <span class="indispensable">必須</span>
       </div>
       <%= f.text_area :name, class:"items-text form-control", id:"item-name", placeholder:"イベント名", maxlength:"40" %>
 
-      <div class="weight-bold-text">
+      <div class="weight-bold-text1">
         場所
         <span class="indispensable">必須</span>
       </div>
       <%= f.text_area :location, class:"items-text form-control", id:"item-name", placeholder:"場所", maxlength:"40" %>
 
-      <div class="weight-bold-text">
+      <div class="weight-bold-text1">
         年/月/日/⚪︎⚪︎:⚪︎⚪︎
         <span class="indispensable">必須</span>
       </div>
       <%= f.datetime_field :datetime, class:"items-text form-control", id:"item-name"%>
       <div class="items-explain">
-        <div class="weight-bold-text">
+        <div class="weight-bold-text1">
           説明
           <span class="indispensable">必須</span>
         </div>
@@ -53,7 +53,7 @@
       </div>
     </div>
 
-      <div class="weight-bold-text">
+      <div class="weight-bold-text1">
         住所
         <span class="indispensable">必須</span>
       </div>
