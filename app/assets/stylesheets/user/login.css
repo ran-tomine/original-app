@@ -19,3 +19,12 @@
   text-align: center;
   color: red;
 }
+
+@media (max-width: 980px) {
+    body .form-wrap {
+        margin-top: 340px;
+        padding: 270px 0 270px 0;
+        margin-bottom:340px;
+    }
+  
+}

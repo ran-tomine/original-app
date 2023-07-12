@@ -322,6 +322,11 @@ a {
   margin-left: calc(-.5 * var(--bs-gutter-x));
 }
 
+.card1{
+  margin: 27px;
+}
+
+
 
 @media (max-width: 980px) {
   .service-title{
@@ -333,6 +338,13 @@ a {
   .item-img {
     height: 300px;
   }
+  .card{
+    margin: 10px;
+  }
+  .position{
+    margin-right:30px;
+  }
+  
 }
 
 
@@ -352,5 +364,10 @@ a {
     margin-top: calc(-1 * var(--bs-gutter-y));
     margin-right: calc(-.5 * var(--bs-gutter-x));
     margin-left: calc(-.5 * var(--bs-gutter-x));
+    --bs-gutter-x: 0rem;
   }
+  .h2title{
+    font-size:20px;
+  }
+  
 }

@@ -62,7 +62,7 @@
   <div style="overflow-x: auto; white-space: nowrap;">
     <ul class='item-lists' style="display: inline-block;">
       <% @events.each do |event| %>
-        <li class="card" style="width: 18rem; margin: 10px; display: inline-block;">
+        <li class="card card1" style="width: 18rem; display: inline-block;">
           <div class='item-img-content'>
             <%= image_tag event.image.variant(resize:'500x500'), class: "item-img card-img-top" if event.image.attached? %>
           </div>
