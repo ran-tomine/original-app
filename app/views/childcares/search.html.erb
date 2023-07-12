@@ -47,7 +47,7 @@
       <% @childcares.each do |childcare| %>
       <div class="col-lg-4" style="margin-top:10px;">
         <%= image_tag childcare.image, class: "bd-placeholder-img rounded-circle", width: "140", height: "140", onmouseover: "this.style.boxShadow='0 0 10px rgba(0, 0, 0, 3.3)';", onmouseout: "this.style.boxShadow='none';" %>
-        <h2><%= childcare.title %></h2>
+        <h2 class="h2title"><%= childcare.title %></h2>
         <p><%= childcare.diary %></p>
         <%= link_to childcare_path(childcare.id), class: "btn btn-secondary", onmouseover: "this.style.boxShadow='0 0 10px rgba(0, 0, 0, 3.3)';", onmouseout: "this.style.boxShadow='none';"  do %>
           日記を読む &raquo;
