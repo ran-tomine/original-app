@@ -338,7 +338,7 @@ a {
   .item-img {
     height: 300px;
   }
-  .card{
+  body .card{
     margin: 10px;
   }
   .position{
@@ -369,5 +369,7 @@ a {
   .h2title{
     font-size:20px;
   }
-  
+  .card {
+    margin: 18px;
+}
 }
